@@ -132,7 +132,7 @@ export default function Page() {
                 Technical Academic Consultancy • Research Support • Software & Cybersecurity
               </motion.p>
               <motion.h1 variants={itemVariants}>
-                Turning Complex Technical Assignments into <em>Submission-Ready</em> Work.</em>
+                Turning Complex Technical Assignments into <em>Submission-Ready</em> Work.
               </motion.h1>
               <motion.p variants={itemVariants} className="hero-subtitle">
                 ProjectAssignments provides expert academic guidance in Cybersecurity, Programming,

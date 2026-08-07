@@ -142,7 +142,7 @@ export default function Page() {
                 <Link href="#services" className="button button-ghost">Explore our expertise <ArrowRight size={17} /></Link>
               </motion.div>
               <motion.div variants={itemVariants} className="hero-proof">
-                <span><CheckCircle2 size={16} /> Ethical guidance</span>
+                <span><CheckCircle2 size={16} /> Plagiarism & Ai Free</span>
                 <span><CheckCircle2 size={16} /> Technical depth</span>
                 <span><CheckCircle2 size={16} /> Research clarity</span>
               </motion.div>

@@ -153,10 +153,10 @@ h3 { margin: 0; font-size: 21px; }
 }
 
 .visual-neural-ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
   width: 70%;
   height: 70%;
   border-radius: 50%;
@@ -193,10 +193,11 @@ h3 { margin: 0; font-size: 21px; }
 }
 
 .node-core {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  margin: 0 !important; /* Prevents stray margins from throwing off the math */
   display: flex;
   flex-direction: column;
   justify-content: center;

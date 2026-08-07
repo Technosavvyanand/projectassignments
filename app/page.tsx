@@ -7,6 +7,12 @@ import Link from 'next/link'
 
 // --- Animated Professional Research Network Visual Component ---
 function ProfessionalResearchScene() {
+  // We removed the 'y' axis from the entrance variant to prevent it from fighting the infinite float animation
+  const entranceVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    show: { opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 80, damping: 20 } }
+  }
+
   const floatTransition = {
     duration: 5,
     ease: "easeInOut",
@@ -14,52 +20,40 @@ function ProfessionalResearchScene() {
     repeatType: "mirror" as const,
   }
 
-  const graphicItemVariants = {
-    hidden: { y: 20, opacity: 0, scale: 0.9 },
-    show: { y: 0, opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 80, damping: 20 } }
-  }
-
-  const pulseGlow = {
-    animate: {
-      boxShadow: [
-        "0 0 15px 1px rgba(0, 110, 255, 0.3)",
-        "0 0 25px 3px rgba(0, 110, 255, 0.4)",
-        "0 0 15px 1px rgba(0, 110, 255, 0.3)"
-      ],
-      transition: {
-        duration: 3,
-        ease: "easeInOut",
-        repeat: Infinity,
-        repeatType: "mirror" as const,
-      }
-    }
-  }
-
   return (
     <motion.div 
       className="research-visual-container"
       initial="hidden"
-      animate="show"
-      viewport={{ once: true, amount: 0.4 }}
-      transition={{ staggerChildren: 0.1, delayChildren: 0.5 }}
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ staggerChildren: 0.15 }}
     >
-      <motion.div className="visual-neural-ring" />
+      <motion.div className="visual-neural-ring" variants={entranceVariants} />
 
-      {/* Central Core Node */}
+      {/* Central Core Node (Pulsing) */}
       <motion.div 
-        variants={pulseGlow}
-        animate="animate"
         className="research-node node-core"
+        variants={entranceVariants}
+        animate={{
+          boxShadow: [
+            "0 0 15px 1px rgba(0, 110, 255, 0.2)",
+            "0 0 30px 4px rgba(0, 110, 255, 0.4)",
+            "0 0 15px 1px rgba(0, 110, 255, 0.2)"
+          ]
+        }}
+        transition={{ 
+          boxShadow: { duration: 3, ease: "easeInOut", repeat: Infinity, repeatType: "mirror" } 
+        }}
       >
         <BrainCircuit size={28} className="node-icon" />
         <span className="node-title">Research</span>
         <span className="node-subtitle">Rigorous Analysis</span>
       </motion.div>
 
-      {/* Satellite Nodes */}
+      {/* Satellite Nodes (Floating) */}
       <motion.div 
-        variants={graphicItemVariants} 
-        animate={{ y: [0, -12, 0]}} 
+        variants={entranceVariants} 
+        animate={{ y: [0, -12, 0] }} 
         transition={floatTransition}
         className="research-node node-cyber"
       >
@@ -68,9 +62,9 @@ function ProfessionalResearchScene() {
       </motion.div>
 
       <motion.div 
-        variants={graphicItemVariants} 
-        animate={{ y: [0, 8, 0]}} 
-        transition={{...floatTransition, delay: 0.5}}
+        variants={entranceVariants} 
+        animate={{ y: [0, 8, 0] }} 
+        transition={{ ...floatTransition, delay: 0.5 }}
         className="research-node node-prog"
       >
         <TerminalSquare size={20} className="node-icon"/>
@@ -78,9 +72,9 @@ function ProfessionalResearchScene() {
       </motion.div>
 
       <motion.div 
-        variants={{hidden: {y: -30, opacity: 0}, show: graphicItemVariants.show}} 
-        animate={{ x: [0, -6, 0]}} 
-        transition={{...floatTransition, duration: 6}}
+        variants={entranceVariants} 
+        animate={{ y: [0, -6, 0] }} 
+        transition={{ ...floatTransition, duration: 6 }}
         className="research-node node-artefacts"
       >
         <Blocks size={20} className="node-icon"/>
@@ -88,16 +82,16 @@ function ProfessionalResearchScene() {
       </motion.div>
       
       <motion.div 
-        variants={graphicItemVariants} 
-        animate={{ y: [0, -10, 0]}} 
-        transition={{...floatTransition, delay: 1}}
+        variants={entranceVariants} 
+        animate={{ y: [0, -10, 0] }} 
+        transition={{ ...floatTransition, delay: 1 }}
         className="research-node node-thesis"
       >
         <FileText size={20} className="node-icon"/>
         <span>Thesis Support</span>
       </motion.div>
 
-      <motion.span variants={graphicItemVariants} className="visual-support-label">TECHNICAL ACADEMIC SUPPORT // 01</motion.span>
+      <motion.span variants={entranceVariants} className="visual-support-label">TECHNICAL ACADEMIC SUPPORT // 01</motion.span>
     </motion.div>
   )
 }
@@ -160,7 +154,7 @@ export default function Page() {
           </div>
         </motion.section>
 
-        {/* Existing Lower Sections (Preserved Unchanged) */}
+        {/* Existing Lower Sections */}
         <section className="trust-strip">
           <div className="container trust-inner">
             <p>For technical work that deserves clarity, rigour, and academic integrity.</p>

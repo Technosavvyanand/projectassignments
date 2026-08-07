@@ -1,19 +1,15 @@
 import {
-  GraduationCap,
-  BriefcaseBusiness,
-  Globe,
-  BookOpen,
-  ShieldCheck,
-  Microscope
+    BookOpen,
+    Microscope,
+    ShieldCheck
 } from "lucide-react";
 
 import {
-  CTA,
-  Footer,
-  Navbar,
-  PageHero,
-  SectionHeading,
-  ValuesGrid
+    CTA,
+    Footer,
+    Navbar,
+    PageHero,
+    SectionHeading
 } from "@/components/site";
 
 export const metadata = { title: 'About', description: 'Learn how ProjectAssignments approaches complex work.' }
@@ -311,49 +307,77 @@ export default function AboutPage() { return <><Navbar /><main>
 
   </div>
 </section>
-.why-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:28px;
-    margin-top:50px;
-}
+<section className="section section-tint">
+  <div className="container">
 
-.why-card{
-    background:#fff;
-    border:1px solid #e5ebf5;
-    border-radius:18px;
-    padding:32px;
-    transition:.25s ease;
-}
+    <SectionHeading
+      eyebrow="Why Choose ProjectAssignments"
+      title="Built around technical expertise, not generic academic support."
+      body="Our consultancy focuses on technically demanding disciplines where subject knowledge, structured thinking and academic integrity make the greatest difference."
+    />
 
-.why-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 18px 40px rgba(15,23,42,.08);
-}
+    <div className="why-grid">
 
-.why-card h3{
-    margin-bottom:16px;
-    color:#10213f;
-    font-size:21px;
-}
+      <article className="why-card">
+        <h3>Technical Subject Expertise</h3>
+        <p>
+          We focus on complex technical disciplines including cybersecurity,
+          software development, databases, cloud technologies and postgraduate
+          research rather than trying to cover every academic subject.
+        </p>
+      </article>
 
-.why-card p{
-    color:#5f6d82;
-    line-height:1.8;
-}
+      <article className="why-card">
+        <h3>Ethical Academic Consultancy</h3>
+        <p>
+          Our approach is centred on guidance, explanation and structured
+          academic support that helps clients better understand their work
+          while respecting institutional standards.
+        </p>
+      </article>
 
-@media(max-width:1024px){
+      <article className="why-card">
+        <h3>Research-Driven Methodology</h3>
+        <p>
+          Every project is approached through recognised research methods,
+          logical structure and technical accuracy rather than generic templates.
+        </p>
+      </article>
 
-.why-grid{
-    grid-template-columns:repeat(2,1fr);
-}
+      <article className="why-card">
+        <h3>Clear Communication</h3>
+        <p>
+          We believe technically challenging work becomes manageable when
+          expectations, methodology and progress are communicated clearly.
+        </p>
+      </article>
 
-}
+      <article className="why-card">
+        <h3>Confidential Collaboration</h3>
+        <p>
+          Every consultation is handled professionally with respect for privacy,
+          confidentiality and long-term client relationships.
+        </p>
+      </article>
 
-@media(max-width:768px){
+      <article className="why-card">
+        <h3>International Perspective</h3>
+        <p>
+          We support learners working across diverse academic systems,
+          postgraduate programmes and technical disciplines around the world.
+        </p>
+      </article>
 
-.why-grid{
-    grid-template-columns:1fr;
-}
+    </div>
 
+  </div>
+</section>
+
+<CTA />
+
+</main>
+
+<Footer />
+
+</>
 }

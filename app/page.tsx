@@ -91,7 +91,7 @@ function ProfessionalResearchScene() {
         <span>Thesis Support</span>
       </motion.div>
 
-      <motion.span variants={entranceVariants} className="visual-support-label">TECHNICAL ACADEMIC SUPPORT // 01</motion.span>
+      <motion.span variants={entranceVariants} className="visual-support-label">ACADEMIC EXCELLENCE • RESEARCH • INNOVATION</motion.span>
     </motion.div>
   )
 }

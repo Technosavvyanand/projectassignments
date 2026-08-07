@@ -129,17 +129,20 @@ export default function Page() {
           <div className="container hero-grid">
             <motion.div className="hero-copy" layout>
               <motion.p variants={itemVariants} className="eyebrow">
-                Technical academic & research consultancy
+                Technical Academic Consultancy • Research Support • Software & Cybersecurity
               </motion.p>
               <motion.h1 variants={itemVariants}>
-                Make complex work <em>credible.</em>
+                Turning Complex Technical Assignments into <em>Submission-Ready</em> Work.</em>
               </motion.h1>
               <motion.p variants={itemVariants} className="hero-subtitle">
-                ProjectAssignments helps students, researchers, and professionals move from difficult technical questions to clear, rigorous, and submission-ready work.
+                ProjectAssignments provides expert academic guidance in Cybersecurity, Programming,
+                Technical Artefacts, MBA & DBA dissertations, and postgraduate research.
+                We help transform complex technical challenges into structured, high-quality,
+                submission-ready work while maintaining academic integrity.
               </motion.p>
               <motion.div variants={itemVariants} className="hero-actions">
-                <Link href="/contact" className="button button-primary">Start a conversation <ArrowRight size={17} /></Link>
-                <Link href="#services" className="button button-ghost">Explore our expertise <ArrowRight size={17} /></Link>
+                <Link href="/contact" className="button button-primary">Start Your Consultation <ArrowRight size={17} /></Link>
+                <Link href="#services" className="button button-ghost">Explore Our Services <ArrowRight size={17} /></Link>
               </motion.div>
               <motion.div variants={itemVariants} className="hero-proof">
                 <span><CheckCircle2 size={16} /> Plagiarism & Ai Free</span>
@@ -151,6 +154,13 @@ export default function Page() {
             <motion.div variants={itemVariants} className="hero-visual">
               <ProfessionalResearchScene />
             </motion.div>
+            <motion.p
+              variants={itemVariants}
+              className="hero-supporting-text"
+            >
+              Supporting postgraduate students, researchers and professionals across
+              Cybersecurity, Programming, Technical Artefacts, MBA, DBA and Capstone Projects.
+            </motion.p>
           </div>
         </motion.section>
 

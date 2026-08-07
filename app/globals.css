@@ -58,7 +58,7 @@ button { cursor: pointer; }
 .hero-grid {
     display: grid;
     grid-template-columns: 60% 40%;
-    align-items: center;
+    align-items: start; /* Aligns both columns to the top */
     gap: 30px;
 }
 .hero-copy {
@@ -97,8 +97,9 @@ h3 { margin: 0; font-size: 21px; }
 .hero-visual {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 480px;
+  align-items: flex-start;
+  min-height: auto; /* Lets the graphic sit naturally */
+  padding-top: 40px; /* Nudges the graphic down just enough to align beautifully with the H1 */
 }
 .hero-visual .research-visual-container {
     width: 100%;

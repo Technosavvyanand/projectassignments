@@ -1,3 +1,19 @@
-import { CTA, Footer, Navbar, PageHero, SectionHeading, ServicesGrid } from '@/components/site'
-export const metadata = { title: 'Services', description: 'Project strategy, software solutions, research, and technical guidance.' }
-export default function ServicesPage() { return <><Navbar /><main><PageHero eyebrow="Academic & technical services" title="The right support for difficult work." body="Specialist guidance for technical assignments, artefacts, dissertations, and theses that need more clarity, rigour, or direction." /><section className="page-content"><div className="container"><SectionHeading eyebrow="Where we help" title="From first questions to defensible outcomes." body="Choose a starting point or bring us the brief. We will help you understand the work, strengthen the thinking, and move forward ethically." /><ServicesGrid /></div></section><CTA /></main><Footer /></> }
+import type { Metadata } from 'next';
+import ServicesClient from './ServicesClient';
+
+// App Router Metadata Export
+export const metadata: Metadata = {
+  title: 'Technical & Academic Research Consultancy | ProjectAssignments.com',
+  description: 'Specialized technical advisory, research methodology consulting, and engineering guidance for Cybersecurity, IT Systems, DBA Dissertations, and Executive MBA projects.',
+  keywords: [
+    'cybersecurity consulting',
+    'IT capstone advisory',
+    'DBA methodology support',
+    'MBA strategic research guidance',
+    'academic technical consultancy'
+  ]
+};
+
+export default function ServicesPage() {
+  return <ServicesClient />;
+}

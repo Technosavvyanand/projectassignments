@@ -273,10 +273,10 @@ export default function ServicesClient() {
         "We provide technical consulting, code and architecture review, research methodology guidance, and editorial feedback. Our goal is to help you understand complex technical concepts, resolve implementation roadblocks, and structure your research according to institutional rubrics."
     },
     {
-      question: "question: "How do you adapt your support to different universities and academic requirements?",
-      answer:
-        question: "How do you adapt your support to different universities and academic requirements?",
-    },
+  question: "How do you adapt your support to different universities and academic requirements?",
+  answer:
+    "Our consultants are familiar with different university guidelines, academic formats, citation requirements, and project expectations. We adapt the consultation approach to the specific brief, rubric, methodology, and institutional requirements provided by the client.",
+},
     {
       question: "Can I request guidance for a specific part of a project or dissertation?",
       answer:

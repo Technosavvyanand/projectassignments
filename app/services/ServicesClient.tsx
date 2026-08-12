@@ -273,9 +273,9 @@ export default function ServicesClient() {
         "We provide technical consulting, code and architecture review, research methodology guidance, and editorial feedback. Our goal is to help you understand complex technical concepts, resolve implementation roadblocks, and structure your research according to institutional rubrics."
     },
     {
-      question: "How do you align with US and Gulf (GCC) university expectations?",
+      question: "question: "How do you adapt your support to different universities and academic requirements?",
       answer:
-        "Our consultants are familiar with standard academic formats used in both regions—including APA 7th edition, IEEE documentation, and standard doctoral methodology structures commonly required by institutions across North America and the GCC."
+        question: "How do you adapt your support to different universities and academic requirements?",
     },
     {
       question: "Can I request guidance for a specific part of a project or dissertation?",
@@ -322,16 +322,15 @@ export default function ServicesClient() {
 
           {/* Page Hero Section */}
           <div className="text-center max-w-4xl mx-auto mb-20">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-4">
-              Academic & Technical Consultancy
-            </span>
-
+            <p className="eyebrow">
+              OUR SERVICES
+              </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-[1.08]">
               Specialized Guidance for High-Stakes Technical & Doctoral Projects
             </h1>
 
             <p className="text-base sm:text-lg text-slate-600 leading-8 font-normal max-w-3xl mx-auto">
-              Structured technical advisory, code review, and research methodology consulting designed for Cybersecurity, IT Systems, DBA, and Executive MBA candidates in US and Gulf markets.
+              Structured technical advisory, code review, and research methodology consulting for students, researchers, and professionals working on complex technical and postgraduate projects worldwide.
             </p>
 
             {/* Quality & Focus Pillars */}
@@ -357,12 +356,12 @@ export default function ServicesClient() {
 
               <div className="p-4 bg-white rounded-xl border border-slate-200/70 shadow-sm">
                 <div className="text-sm sm:text-base font-bold text-slate-900">
-                  US & GCC Focus
-                </div>
-                <div className="text-sm text-slate-500 mt-1">
-                  Regional rubric alignment
-                </div>
-              </div>
+                  Global Reach
+                  </div>
+  <div className="text-sm text-slate-500 mt-1">
+    Support across disciplines and institutions
+  </div>
+</div>
 
               <div className="p-4 bg-white rounded-xl border border-slate-200/70 shadow-sm">
                 <div className="text-sm sm:text-base font-bold text-slate-900">
@@ -497,8 +496,8 @@ export default function ServicesClient() {
                       className="text-sm font-semibold text-blue-700 hover:text-blue-800 inline-flex items-center gap-1 group"
                     >
                       <span>
-                        Explore {pillar.title.split(' ')[0]} Hub
-                      </span>
+  Explore {pillar.title.split(' ')[0]}
+</span>
 
                       <svg
                         className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5"
@@ -535,64 +534,66 @@ export default function ServicesClient() {
           </div>
 
           {/* Regional Standards Block */}
-          <div className="bg-white rounded-2xl p-8 sm:p-12 mb-24 border border-slate-200 shadow-sm">
+{/* Academic & Professional Standards */}
+<div className="bg-white rounded-2xl p-8 sm:p-12 mb-24 border border-slate-200 shadow-sm">
 
-            <div className="max-w-2xl mx-auto text-center mb-10">
+  <div className="max-w-2xl mx-auto text-center mb-10">
 
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
-                Regional Academic Framework Alignment
-              </h2>
+    <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
+      Academic & Professional Standards
+    </h2>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-7">
-                We tailor our consulting approach to meet the distinct structural expectations of institutions in North America and the Gulf region.
-              </p>
+    <p className="text-slate-600 text-sm sm:text-base leading-7">
+      Every project is approached according to its institutional requirements,
+      academic discipline, technical environment and research objectives.
+    </p>
 
-            </div>
+  </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-              <div className="p-6 rounded-xl bg-slate-50 border border-slate-200/80">
+    <div className="p-6 rounded-xl bg-slate-50 border border-slate-200/80">
 
-                <div className="flex items-center gap-2 mb-3">
+      <h3 className="text-base font-semibold text-slate-900 mb-3">
+        Institutional Requirements
+      </h3>
 
-                  <span className="px-2 py-0.5 rounded bg-blue-100 text-blue-800 font-bold text-xs">
-                    US Focus
-                  </span>
+      <p className="text-sm text-slate-600 leading-7">
+        We work from your assignment brief, assessment criteria,
+        research guidelines and submission requirements.
+      </p>
 
-                  <h3 className="text-base font-semibold text-slate-900">
-                    North American University Standards
-                  </h3>
+    </div>
 
-                </div>
+    <div className="p-6 rounded-xl bg-slate-50 border border-slate-200/80">
 
-                <p className="text-sm text-slate-600 leading-7">
-                  Advisory focused on meeting standard university rubrics, IEEE documentation guidelines, APA 7th Edition citation precision, and rigorous technical methodology design.
-                </p>
+      <h3 className="text-base font-semibold text-slate-900 mb-3">
+        Technical Standards
+      </h3>
 
-              </div>
+      <p className="text-sm text-slate-600 leading-7">
+        Guidance is grounded in recognised technical practices,
+        documentation standards and appropriate methodologies.
+      </p>
 
-              <div className="p-6 rounded-xl bg-slate-50 border border-slate-200/80">
+    </div>
 
-                <div className="flex items-center gap-2 mb-3">
+    <div className="p-6 rounded-xl bg-slate-50 border border-slate-200/80">
 
-                  <span className="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-xs">
-                    GCC Focus
-                  </span>
+      <h3 className="text-base font-semibold text-slate-900 mb-3">
+        Research Integrity
+      </h3>
 
-                  <h3 className="text-base font-semibold text-slate-900">
-                    Gulf Region Executive Programs
-                  </h3>
+      <p className="text-sm text-slate-600 leading-7">
+        Our approach keeps understanding, responsible authorship
+        and academic integrity at the centre of every engagement.
+      </p>
 
-                </div>
+    </div>
 
-                <p className="text-sm text-slate-600 leading-7">
-                  Tailored support for working professionals in UAE, KSA, Qatar, and Kuwait balancing full-time employment with Executive MBA or DBA research demands.
-                </p>
+  </div>
 
-              </div>
-
-            </div>
-          </div>
+</div>
 
           {/* Engagement Workflow */}
           <div className="mb-24">

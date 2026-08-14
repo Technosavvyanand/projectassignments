@@ -1,8 +1,6 @@
 'use client'
 
-import Link from 'next/link'
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import {
   ArrowRight,
   Check,
@@ -10,22 +8,18 @@ import {
   Code2,
   FileCode2,
   FileText,
-  Globe2,
-  Layers3,
-  Mail,
   Menu,
-  MessageCircle,
-  MonitorCog,
   Network,
   Quote,
   ShieldCheck,
   Sparkles,
   TerminalSquare,
-  X,
+  X
 } from 'lucide-react'
+import Link from 'next/link'
+import { useState } from 'react'
 
-export const logoUrl = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-08-07%20at%203.41.16%20PM-Az6YV5JkEd4KvcVhDzVhdEabfrccsx.jpeg'
-
+export const logoUrl = '/projectassignments-logo.png'
 export function Logo({ compact = false }: { compact?: boolean }) {
   return (
     <Link href="/" aria-label="ProjectAssignments home" className={`brand-logo ${compact ? 'brand-logo-compact' : ''}`}>

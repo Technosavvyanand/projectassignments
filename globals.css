@@ -36,8 +36,9 @@ button { cursor: pointer; }
 .button-light { color: var(--primary); background: white; }
 .button-ghost { color: var(--foreground); border: 1px solid var(--border); background: transparent; }
 .button-ghost:hover { border-color: var(--primary); color: var(--primary); }
-.whatsapp-button { position: fixed; right: 24px; bottom: 24px; z-index: 50; display: grid; width: 58px; height: 58px; place-items: center; border: 2px solid #fff; border-radius: 50%; color: #fff; background: var(--primary); box-shadow: 0 12px 28px rgba(16, 79, 157, .28); animation: whatsapp-enter .7s cubic-bezier(.22, 1, .36, 1) both, whatsapp-bounce 4s 1.2s ease-in-out infinite; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
-.whatsapp-button:hover { background: #0d56bb; box-shadow: 0 16px 34px rgba(16, 79, 157, .36); transform: translateY(-4px) scale(1.04); }
+.whatsapp-button { position: fixed; right: 24px; bottom: 24px; z-index: 50; display: grid; width: 58px; height: 58px; place-items: center; border: 2px solid #fff; border-radius: 50%; color: #fff; background: #25D366; box-shadow: 0 12px 28px rgba(37, 211, 102, .28); animation: whatsapp-enter .7s cubic-bezier(.22, 1, .36, 1) both, whatsapp-bounce 4s 1.2s ease-in-out infinite; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
+
+.whatsapp-button:hover { background: #20BA5A; box-shadow: 0 16px 34px rgba(37, 211, 102, .36); transform: translateY(-4px) scale(1.04); }
 .whatsapp-button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 .whatsapp-tooltip { position: absolute; right: calc(100% + 12px); top: 50%; width: max-content; padding: 8px 11px; border-radius: 6px; color: var(--foreground); background: #fff; box-shadow: 0 8px 22px rgba(16, 32, 59, .14); font-size: 12px; font-weight: 700; opacity: 0; pointer-events: none; transform: translate(6px, -50%); transition: opacity .2s ease, transform .2s ease; }
 .whatsapp-button:hover .whatsapp-tooltip, .whatsapp-button:focus-visible .whatsapp-tooltip { opacity: 1; transform: translate(0, -50%); }

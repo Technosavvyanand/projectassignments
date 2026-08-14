@@ -1,8 +1,9 @@
+import { Navbar } from '@/components/site'
+import { WhatsAppButton } from '@/components/whatsapp-button'
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { DM_Sans, IBM_Plex_Mono, Manrope } from 'next/font/google'
 import './globals.css'
-import { WhatsAppButton } from '@/components/whatsapp-button'
 
 const bodyFont = DM_Sans({ subsets: ['latin'], variable: '--font-body' })
 const displayFont = Manrope({ subsets: ['latin'], variable: '--font-display' })
@@ -18,5 +19,14 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { colorScheme: 'light', themeColor: '#f7f9fc', width: 'device-width', initialScale: 1, userScalable: true }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" className="bg-background"><body className={`${bodyFont.variable} ${displayFont.variable} ${monoFont.variable} antialiased`}>{children}<WhatsAppButton />{process.env.NODE_ENV === 'production' && <Analytics />}</body></html>
+  return (
+    <html lang="en" className="bg-background">
+      <body className={`${bodyFont.variable} ${displayFont.variable} ${monoFont.variable} antialiased`}>
+        <Navbar />
+        {children}
+        <WhatsAppButton />
+        {process.env.NODE_ENV === 'production' && <Analytics />}
+      </body>
+    </html>
+  )
 }

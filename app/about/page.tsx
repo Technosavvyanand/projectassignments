@@ -1,20 +1,19 @@
 import {
-    BookOpen,
-    Microscope,
-    ShieldCheck
+  BookOpen,
+  Microscope,
+  ShieldCheck
 } from "lucide-react";
 
 import {
-    CTA,
-    Footer,
-    Navbar,
-    PageHero,
-    SectionHeading
+  CTA,
+  Footer,
+  PageHero,
+  SectionHeading
 } from "@/components/site";
 
 export const metadata = { title: 'About', description: 'Learn how ProjectAssignments approaches complex work.' }
 
-export default function AboutPage() { return <><Navbar /><main>
+export default function AboutPage() { return <><main>
     <PageHero
   eyebrow="ABOUT PROJECTASSIGNMENTS"
   title="Technical Expertise. Academic Integrity. Practical Guidance."

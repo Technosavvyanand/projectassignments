@@ -1,6 +1,6 @@
 'use client'
 
-import { CTA, FAQ, Footer, Navbar, SectionHeading, ServicesGrid, TechnologyGrid, Testimonials, ValuesGrid } from '@/components/site'
+import { CTA, FAQ, Footer, SectionHeading, ServicesGrid, TechnologyGrid, Testimonials, ValuesGrid } from '@/components/site'
 import { motion } from 'framer-motion'
 import { ArrowRight, Blocks, BotMessageSquare, BrainCircuit, CheckCircle2, FileText, TerminalSquare } from 'lucide-react'
 import Link from 'next/link'
@@ -116,7 +116,6 @@ export default function Page() {
 
   return (
     <>
-      <Navbar />
       <main>
         {/* Animated Hero Section */}
         <motion.section 

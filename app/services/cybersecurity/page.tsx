@@ -1,7 +1,6 @@
 import { ArrowRight, CheckCircle2, ShieldCheck } from 'lucide-react'
 import Link from 'next/link'
 
-// 1. ADDED: Twitter metadata for complete social sharing coverage
 export const metadata = {
   title: 'Cybersecurity Project & Research Support',
   description:
@@ -16,14 +15,147 @@ export const metadata = {
     url: 'https://projectassignments.com/services/cybersecurity',
     type: 'website',
   },
-  twitter: {
-    card: 'summary',
-    title: 'Cybersecurity Project & Research Support | ProjectAssignments',
-    description: 'Technical guidance for cybersecurity projects, penetration testing labs, vulnerability assessments, capstones, security research and technical reports.',
-  },
 }
 
-// 2. MOVED: faqs array moved UP so the schema can read from it dynamically
+const cybersecuritySchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Service',
+      '@id':
+        'https://projectassignments.com/services/cybersecurity#service',
+      name: 'Cybersecurity Project & Research Support',
+      description:
+        'Technical guidance for cybersecurity projects, penetration testing labs, vulnerability assessments, capstone projects, security research and technical documentation.',
+      provider: {
+        '@type': 'Organization',
+        name: 'ProjectAssignments',
+        url: 'https://projectassignments.com',
+      },
+      areaServed: 'Worldwide',
+      serviceType: 'Cybersecurity academic and technical consultancy',
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id':
+        'https://projectassignments.com/services/cybersecurity#breadcrumb',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://projectassignments.com/',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Services',
+          item: 'https://projectassignments.com/services',
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: 'Cybersecurity',
+          item: 'https://projectassignments.com/services/cybersecurity',
+        },
+      ],
+    },
+  ],
+}
+
+const expertiseAreas = [
+  {
+    title: 'Penetration Testing & Security Reports',
+    description:
+      'Guidance with authorised security testing, assessment methodology, evidence interpretation, findings and professional reporting.',
+  },
+  {
+    title: 'Vulnerability Assessment & Risk Analysis',
+    description:
+      'Support with vulnerability identification, risk classification, evidence organisation and remediation recommendations.',
+  },
+  {
+    title: 'Network Security',
+    description:
+      'Network analysis, traffic interpretation, architecture review, packet analysis and security documentation.',
+  },
+  {
+    title: 'Digital Forensics',
+    description:
+      'Structured guidance for forensic methodology, evidence interpretation, investigation workflows and technical reporting.',
+  },
+  {
+    title: 'Security Operations & SIEM',
+    description:
+      'Support with log analysis, incident investigation, security monitoring concepts and SIEM-based technical projects.',
+  },
+  {
+    title: 'Cloud Security',
+    description:
+      'Security considerations for AWS, Azure and cloud-based architectures, including identity, access, configuration and risk.',
+  },
+  {
+    title: 'Secure Software Development',
+    description:
+      'Security-focused programming, secure design principles, vulnerability analysis and application security documentation.',
+  },
+  {
+    title: 'Cybersecurity Risk & Compliance',
+    description:
+      'Guidance with cybersecurity risk assessment, security controls, governance, compliance frameworks and structured analysis.',
+  },
+]
+
+const frameworks = [
+  'NIST Cybersecurity Framework 2.0',
+  'NIST SP 800-115',
+  'OWASP',
+  'MITRE ATT&CK',
+  'CVSS',
+  'ISO/IEC 27001',
+]
+
+const technologies = [
+  'Kali Linux',
+  'Nmap',
+  'Wireshark',
+  'Burp Suite',
+  'Metasploit',
+  'Splunk',
+  'Python',
+  'Linux',
+  'AWS',
+  'Azure',
+]
+
+const audiences = [
+  {
+    title: 'Undergraduate Students',
+    description:
+      'Cybersecurity coursework, practical labs, technical reports and introductory security projects.',
+  },
+  {
+    title: 'Postgraduate Students',
+    description:
+      'Advanced cybersecurity projects, research, security analysis and technical documentation.',
+  },
+  {
+    title: 'Capstone Students',
+    description:
+      'Security architecture, testing methodology, implementation evidence and capstone documentation.',
+  },
+  {
+    title: 'Researchers',
+    description:
+      'Cybersecurity research methodology, literature analysis, technical evidence and research documentation.',
+  },
+  {
+    title: 'IT & Security Professionals',
+    description:
+      'Structured technical guidance for professional learning, research and security-focused projects.',
+  },
+]
+
 const faqs = [
   {
     question: 'Can you help with a cybersecurity penetration testing project?',
@@ -57,69 +189,6 @@ const faqs = [
   },
 ]
 
-const cybersecuritySchema = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'Service',
-      '@id': 'https://projectassignments.com/services/cybersecurity#service',
-      name: 'Cybersecurity Project & Research Support',
-      description:
-        'Technical guidance for cybersecurity projects, penetration testing labs, vulnerability assessments, capstone projects, security research and technical documentation.',
-      provider: {
-        '@type': 'Organization',
-        name: 'ProjectAssignments',
-        url: 'https://projectassignments.com',
-      },
-      areaServed: 'Worldwide',
-      serviceType: 'Cybersecurity academic and technical consultancy',
-    },
-    {
-      '@type': 'BreadcrumbList',
-      '@id': 'https://projectassignments.com/services/cybersecurity#breadcrumb',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Home',
-          item: 'https://projectassignments.com/',
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'Services',
-          item: 'https://projectassignments.com/services',
-        },
-        {
-          '@type': 'ListItem',
-          position: 3,
-          name: 'Cybersecurity',
-          item: 'https://projectassignments.com/services/cybersecurity',
-        },
-      ],
-    },
-    // 3. ADDED: FAQPage schema dynamically generated from your array
-    {
-      '@type': 'FAQPage',
-      '@id': 'https://projectassignments.com/services/cybersecurity#faq',
-      mainEntity: faqs.map((faq) => ({
-        '@type': 'Question',
-        name: faq.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: faq.answer,
-        },
-      })),
-    },
-  ],
-}
-
-// ... [Keep your expertiseAreas, frameworks, technologies, and audiences arrays exactly as they were] ...
-const expertiseAreas = [ /* ... */ ]
-const frameworks = [ /* ... */ ]
-const technologies = [ /* ... */ ]
-const audiences = [ /* ... */ ]
-
 export default function CybersecurityPage() {
   return (
     <main>
@@ -130,15 +199,52 @@ export default function CybersecurityPage() {
         }}
       />
 
-      {/* Breadcrumb - Unchanged */}
-      {/* ... */}
+      {/* Breadcrumb */}
+      <nav
+        aria-label="Breadcrumb"
+        className="container"
+        style={{ paddingTop: 24 }}
+      >
+        <ol
+          style={{
+            display: 'flex',
+            gap: 8,
+            alignItems: 'center',
+            fontSize: 13,
+            color: '#64748b',
+          }}
+        >
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+
+          <li aria-hidden="true">/</li>
+
+          <li>
+            <Link href="/services">Services</Link>
+          </li>
+
+          <li aria-hidden="true">/</li>
+
+          <li aria-current="page">Cybersecurity</li>
+        </ol>
+      </nav>
 
       {/* Hero */}
       <section className="section section-tint">
         <div className="container">
           <div className="two-column" style={{ alignItems: 'center' }}>
             <div>
-              {/* ... unchanged text ... */}
+              <p className="eyebrow">OUR CYBERSECURITY EXPERTISE</p>
+
+              <h1>Cybersecurity Projects, Labs &amp; Research Support</h1>
+
+              <p className="hero-subtitle">
+                Technical guidance for cybersecurity coursework, practical
+                labs, capstone projects and postgraduate research — from
+                methodology and evidence interpretation to security analysis
+                and professional documentation.
+              </p>
 
               <div className="hero-actions">
                 <a
@@ -148,7 +254,6 @@ export default function CybersecurityPage() {
                   className="button button-primary"
                 >
                   Discuss Your Project
-                  {/* 4. ADDED: aria-hidden to decorative icons */}
                   <ArrowRight size={16} aria-hidden="true" />
                 </a>
 
@@ -156,8 +261,12 @@ export default function CybersecurityPage() {
                   Explore Expertise
                 </a>
               </div>
-              
-              {/* ... unchanged text ... */}
+
+              <div className="hero-proof">
+                <span>Technical depth</span>
+                <span>Research clarity</span>
+                <span>Responsible guidance</span>
+              </div>
             </div>
 
             <div className="consultancy-card" style={{ padding: '36px' }}>
@@ -173,11 +282,21 @@ export default function CybersecurityPage() {
                   marginBottom: 22,
                 }}
               >
-                {/* 4. ADDED: aria-hidden */}
                 <ShieldCheck size={30} aria-hidden="true" />
               </div>
 
-              {/* ... unchanged text ... */}
+              <p className="eyebrow">TECHNICAL SECURITY WORK</p>
+
+              <h2 style={{ marginBottom: 14 }}>
+                From security concepts to defensible technical outcomes.
+              </h2>
+
+              <p>
+                Cybersecurity projects often require more than a written
+                explanation. They may involve technical environments,
+                evidence, testing methodology, security frameworks and
+                structured reporting.
+              </p>
             </div>
           </div>
         </div>
@@ -186,7 +305,19 @@ export default function CybersecurityPage() {
       {/* Expertise */}
       <section id="expertise" className="section">
         <div className="container">
-          {/* ... unchanged text ... */}
+          <div style={{ maxWidth: 760, marginBottom: 42 }}>
+            <p className="eyebrow">AREAS OF EXPERTISE</p>
+
+            <h2>
+              Focused support across practical and research-oriented
+              cybersecurity work.
+            </h2>
+
+            <p>
+              We focus on technically demanding cybersecurity work where
+              methodology, evidence, analysis and documentation all matter.
+            </p>
+          </div>
 
           <div className="services-grid">
             {expertiseAreas.map((area) => (
@@ -207,11 +338,11 @@ export default function CybersecurityPage() {
                     marginBottom: 18,
                   }}
                 >
-                  {/* 4. ADDED: aria-hidden */}
                   <CheckCircle2 size={20} aria-hidden="true" />
                 </div>
 
                 <h3>{area.title}</h3>
+
                 <p>{area.description}</p>
               </article>
             ))}
@@ -223,10 +354,41 @@ export default function CybersecurityPage() {
       <section className="section section-tint">
         <div className="container">
           <div className="two-column">
-            {/* ... unchanged text ... */}
+            <div>
+              <p className="eyebrow">
+                CYBERSECURITY PROJECT &amp; LAB SUPPORT
+              </p>
+
+              <h2>
+                Cybersecurity work needs evidence, methodology and clear
+                technical reasoning.
+              </h2>
+
+              <p>
+                A strong cybersecurity project is rarely just a collection of
+                screenshots or tool output. The technical work needs to be
+                connected to a clear objective, appropriate methodology,
+                meaningful analysis and defensible conclusions.
+              </p>
+
+              <p>
+                We help students and researchers work through those
+                connections while keeping their own understanding and
+                authorship at the centre.
+              </p>
+            </div>
 
             <div className="consultancy-card" style={{ padding: 30 }}>
-              {[ /* ... */ ].map((item) => (
+              {[
+                'Practical cybersecurity laboratories',
+                'Penetration testing and security assessment reports',
+                'Vulnerability assessment documentation',
+                'Network and packet analysis',
+                'Security architecture and threat modelling',
+                'Cybersecurity capstone projects',
+                'Technical research documentation',
+                'Evaluation and final project review',
+              ].map((item) => (
                 <div
                   key={item}
                   style={{
@@ -237,7 +399,6 @@ export default function CybersecurityPage() {
                     borderBottom: '1px solid #edf1f6',
                   }}
                 >
-                  {/* 4. ADDED: aria-hidden */}
                   <CheckCircle2
                     size={18}
                     aria-hidden="true"
@@ -247,6 +408,7 @@ export default function CybersecurityPage() {
                       color: '#1769d2',
                     }}
                   />
+
                   <span>{item}</span>
                 </div>
               ))}
@@ -255,11 +417,164 @@ export default function CybersecurityPage() {
         </div>
       </section>
 
-      {/* Frameworks, Tools, Audience, Academic Integrity - Unchanged */}
-      {/* ... */}
-      
-      {/* FAQ - Unchanged in JSX, heavily improved via the JSON-LD schema added at the top */}
-      {/* ... */}
+      {/* Frameworks */}
+      <section className="section">
+        <div className="container">
+          <div style={{ maxWidth: 760, marginBottom: 38 }}>
+            <p className="eyebrow">FRAMEWORKS &amp; METHODOLOGIES</p>
+
+            <h2>
+              Familiarity with recognised cybersecurity frameworks and
+              assessment approaches.
+            </h2>
+
+            <p>
+              Frameworks provide structure. The right framework depends on the
+              research question, technical environment and requirements of the
+              project.
+            </p>
+          </div>
+
+          <div className="technology-grid">
+            {frameworks.map((framework) => (
+              <div
+                key={framework}
+                className="consultancy-card"
+                style={{ padding: 22 }}
+              >
+                <strong>{framework}</strong>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tools */}
+      <section className="section section-tint">
+        <div className="container">
+          <div style={{ maxWidth: 760, marginBottom: 38 }}>
+            <p className="eyebrow">TOOLS &amp; ENVIRONMENTS</p>
+
+            <h2>
+              Technical environments relevant to cybersecurity projects.
+            </h2>
+          </div>
+
+          <div className="technology-grid">
+            {technologies.map((technology) => (
+              <div
+                key={technology}
+                className="consultancy-card"
+                style={{
+                  padding: 22,
+                  fontFamily: 'var(--font-mono-family)',
+                  fontSize: 14,
+                }}
+              >
+                {technology}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Audience */}
+      <section className="section">
+        <div className="container">
+          <div style={{ maxWidth: 760, marginBottom: 38 }}>
+            <p className="eyebrow">WHO WE SUPPORT</p>
+
+            <h2>
+              Cybersecurity guidance for different stages of academic and
+              professional work.
+            </h2>
+          </div>
+
+          <div className="services-grid">
+            {audiences.map((audience) => (
+              <article
+                key={audience.title}
+                className="consultancy-card"
+                style={{ padding: 28 }}
+              >
+                <h3>{audience.title}</h3>
+                <p>{audience.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Academic Integrity */}
+      <section className="section section-tint">
+        <div className="container">
+          <div
+            className="consultancy-card"
+            style={{
+              padding: '42px 36px',
+              maxWidth: 900,
+              margin: '0 auto',
+              textAlign: 'center',
+            }}
+          >
+            <p className="eyebrow">RESPONSIBLE TECHNICAL GUIDANCE</p>
+
+            <h2>
+              Technical support that keeps understanding at the centre.
+            </h2>
+
+            <p style={{ maxWidth: 720, margin: '0 auto' }}>
+              Our role is to help you understand technical concepts,
+              interpret evidence, structure research and strengthen your work.
+              We work from the requirements of your project while keeping
+              academic integrity and responsible use of technical knowledge
+              central to the engagement.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section">
+        <div className="container">
+          <div className="faq-layout">
+            <div>
+              <p className="eyebrow">CYBERSECURITY FAQ</p>
+
+              <h2>Questions about cybersecurity project support.</h2>
+
+              <p>
+                A few useful answers before you decide whether our
+                cybersecurity consultancy is right for your project.
+              </p>
+            </div>
+
+            <div>
+              {faqs.map((faq) => (
+                <details
+                  key={faq.question}
+                  className="consultancy-card"
+                  style={{ marginBottom: 12, padding: 20 }}
+                >
+                  <summary
+                    style={{
+                      cursor: 'pointer',
+                      fontWeight: 700,
+                      color: '#10213f',
+                    }}
+                  >
+                    {faq.question}
+                  </summary>
+
+                  <p style={{ marginTop: 14, marginBottom: 0 }}>
+                    {faq.answer}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Internal Links */}
       <section className="section">
@@ -271,7 +586,15 @@ export default function CybersecurityPage() {
               textAlign: 'center',
             }}
           >
-            {/* ... unchanged text ... */}
+            <p className="eyebrow">EXPLORE MORE</p>
+
+            <h2>More from ProjectAssignments</h2>
+
+            <p>
+              Explore our broader technical services or learn more about how
+              ProjectAssignments approaches complex academic and research
+              work.
+            </p>
 
             <div
               className="hero-actions"
@@ -301,7 +624,15 @@ export default function CybersecurityPage() {
               textAlign: 'center',
             }}
           >
-            {/* ... unchanged text ... */}
+            <p className="eyebrow">HAVE A CYBERSECURITY PROJECT?</p>
+
+            <h2>Let's understand what you're working on.</h2>
+
+            <p style={{ maxWidth: 650, margin: '0 auto 24px' }}>
+              Share your project brief, research question or technical
+              challenge and we'll help you understand the most appropriate
+              way forward.
+            </p>
 
             <a
               href="https://wa.me/918595089080?text=Hi%2C%20I%20would%20like%20to%20discuss%20a%20cybersecurity%20project."

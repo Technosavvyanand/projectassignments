@@ -33,8 +33,8 @@ const navItems = [
   ['Services', '/services'],
   ['Technologies', '/technologies'],
   ['Resources', '/resources'],
+  ['Policies', '/policies'],
 ]
-
 export function Navbar() {
   const [open, setOpen] = useState(false)
   return (

@@ -64,7 +64,7 @@ export function Footer() {
     <div className="container footer-grid">
       <div><Logo compact /><p className="footer-copy">Technical academic guidance for complex research, assignments, and postgraduate work.</p></div>
       <div><p className="footer-label">Explore</p>{navItems.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>
-      <div><p className="footer-label">Get in touch</p><a href="mailto:hello@projectassignments.com">hello@projectassignments.com</a><a href="/contact">Tell us about your project <ArrowRight size={14} /></a></div>
+      <div><p className="footer-label">Get in touch</p><a href="mailto:help@projectassignments.com">help@projectassignments.com</a><a href="/contact">Tell us about your project <ArrowRight size={14} /></a></div>
     </div>
     <div className="container footer-bottom"><span>© {new Date().getFullYear()} ProjectAssignments. All rights reserved.</span><span>Built for thoughtful work.</span></div>
   </footer>

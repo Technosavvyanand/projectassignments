@@ -344,6 +344,22 @@ export default function CybersecurityPage() {
                 <h3>{area.title}</h3>
 
                 <p>{area.description}</p>
+
+                {area.title === 'Penetration Testing & Security Reports' && (
+                  <Link
+                    href="/services/cybersecurity/penetration-testing"
+                    className="button button-secondary"
+                    style={{
+                      marginTop: 18,
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 7,
+                    }}
+                  >
+                    Explore Penetration Testing
+                    <ArrowRight size={16} aria-hidden="true" />
+                  </Link>
+                )}
               </article>
             ))}
           </div>

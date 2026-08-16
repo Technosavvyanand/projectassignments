@@ -1,20 +1,22 @@
 import {
-    BarChart3,
-    BookOpen,
-    Code2,
-    Database,
-    FileCode2,
-    Network,
-    SearchCheck,
-    ShieldCheck,
+  ArrowRight,
+  BarChart3,
+  BookOpen,
+  Code2,
+  Database,
+  FileCode2,
+  Network,
+  SearchCheck,
+  ShieldCheck,
 } from 'lucide-react'
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 import {
-    CTA,
-    Footer,
-    PageHero,
-    SectionHeading,
+  CTA,
+  Footer,
+  PageHero,
+  SectionHeading,
 } from '@/components/site'
 
 export const metadata: Metadata = {
@@ -319,6 +321,49 @@ export default function TechnologiesPage() {
                   </p>
                 </article>
               ))}
+            </div>
+
+            {/* Featured WEKA Technology */}
+            <div
+              className="consultancy-card"
+              style={{
+                marginTop: '36px',
+                padding: '30px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '28px',
+                flexWrap: 'wrap',
+              }}
+            >
+              <div style={{ maxWidth: '760px' }}>
+                <p className="eyebrow">FEATURED TECHNOLOGY</p>
+
+                <h3 style={{ marginBottom: '10px' }}>
+                  WEKA Data Mining &amp; Machine Learning
+                </h3>
+
+                <p style={{ marginBottom: 0 }}>
+                  Explore practical guidance on WEKA for data mining and
+                  machine-learning projects, including ARFF datasets,
+                  preprocessing, classification, clustering, model
+                  evaluation, and academic research.
+                </p>
+              </div>
+
+              <Link
+                href="/technologies/weka"
+                className="button button-primary"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  flexShrink: 0,
+                }}
+              >
+                Explore WEKA
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </section>

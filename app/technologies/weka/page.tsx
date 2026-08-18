@@ -1,6 +1,7 @@
 import { CTA, Footer, PageHero, SectionHeading } from '@/components/site'
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title:
@@ -57,6 +58,7 @@ export default function WekaPage() {
                   height={576}
                   priority
                 />
+
                 <p className="image-caption">
                   A structured WEKA workflow from data preparation through
                   model evaluation and prediction.
@@ -97,6 +99,7 @@ export default function WekaPage() {
                       <th>Typical use</th>
                     </tr>
                   </thead>
+
                   <tbody>
                     <tr>
                       <td>Explorer</td>
@@ -109,6 +112,7 @@ export default function WekaPage() {
                         and model development.
                       </td>
                     </tr>
+
                     <tr>
                       <td>Experimenter</td>
                       <td>
@@ -119,6 +123,7 @@ export default function WekaPage() {
                         Empirical research and comparative model evaluation.
                       </td>
                     </tr>
+
                     <tr>
                       <td>Knowledge Flow</td>
                       <td>
@@ -129,6 +134,7 @@ export default function WekaPage() {
                         Repeatable pipelines and stream-oriented processing.
                       </td>
                     </tr>
+
                     <tr>
                       <td>Workbench</td>
                       <td>
@@ -139,6 +145,7 @@ export default function WekaPage() {
                         Users who want a centralized analytical environment.
                       </td>
                     </tr>
+
                     <tr>
                       <td>Command Line</td>
                       <td>
@@ -164,6 +171,7 @@ export default function WekaPage() {
               <div className="three-column">
                 <article className="info-card">
                   <h3>Data preprocessing</h3>
+
                   <p>
                     Clean, transform, filter, normalize, discretize, and
                     prepare datasets before modelling. Missing-value handling,
@@ -174,15 +182,24 @@ export default function WekaPage() {
 
                 <article className="info-card">
                   <h3>Classification</h3>
+
                   <p>
                     Explore algorithms including J48, Random Forest, Naive
                     Bayes, SMO, MultilayerPerceptron, IBk, and other learning
                     approaches for supervised prediction tasks.
                   </p>
+
+                  <Link
+                    href="/technologies/weka/classification"
+                    className="text-link"
+                  >
+                    Explore WEKA classification →
+                  </Link>
                 </article>
 
                 <article className="info-card">
                   <h3>Regression</h3>
+
                   <p>
                     Build predictive models for numerical outcomes using
                     linear and other regression-oriented learning techniques.
@@ -191,14 +208,23 @@ export default function WekaPage() {
 
                 <article className="info-card">
                   <h3>Clustering</h3>
+
                   <p>
                     Investigate unlabeled datasets using methods such as
                     SimpleKMeans, EM, and hierarchical clustering.
                   </p>
+
+                  <Link
+                    href="/technologies/weka/clustering-evaluation"
+                    className="text-link"
+                  >
+                    Explore WEKA clustering & evaluation →
+                  </Link>
                 </article>
 
                 <article className="info-card">
                   <h3>Association rules</h3>
+
                   <p>
                     Discover relationships between variables using techniques
                     such as Apriori and FP-Growth, with measures including
@@ -208,6 +234,7 @@ export default function WekaPage() {
 
                 <article className="info-card">
                   <h3>Attribute selection</h3>
+
                   <p>
                     Identify informative features and reduce unnecessary
                     attributes using evaluators and search strategies available
@@ -267,8 +294,10 @@ export default function WekaPage() {
               <div className="process-list">
                 <article className="process-step">
                   <span>01</span>
+
                   <div>
                     <h3>Load and inspect the dataset</h3>
+
                     <p>
                       Open the ARFF or CSV dataset in Explorer and inspect
                       attributes, class distributions, missing values, and
@@ -279,8 +308,10 @@ export default function WekaPage() {
 
                 <article className="process-step">
                   <span>02</span>
+
                   <div>
                     <h3>Preprocess the data</h3>
+
                     <p>
                       Apply appropriate filters for missing values, attribute
                       transformations, normalization, discretization, or class
@@ -291,8 +322,10 @@ export default function WekaPage() {
 
                 <article className="process-step">
                   <span>03</span>
+
                   <div>
                     <h3>Select relevant attributes</h3>
+
                     <p>
                       Use attribute evaluators and search methods to identify
                       potentially useful features and reduce unnecessary
@@ -303,8 +336,10 @@ export default function WekaPage() {
 
                 <article className="process-step">
                   <span>04</span>
+
                   <div>
                     <h3>Choose and configure the model</h3>
+
                     <p>
                       Select an appropriate classifier, regressor, clusterer,
                       or association-rule algorithm and document its important
@@ -315,8 +350,10 @@ export default function WekaPage() {
 
                 <article className="process-step">
                   <span>05</span>
+
                   <div>
                     <h3>Evaluate the model</h3>
+
                     <p>
                       Use an appropriate validation strategy such as
                       cross-validation or a supplied test set rather than
@@ -327,8 +364,10 @@ export default function WekaPage() {
 
                 <article className="process-step">
                   <span>06</span>
+
                   <div>
                     <h3>Interpret and document the results</h3>
+
                     <p>
                       Analyse accuracy, precision, recall, F-measure, ROC
                       information, confusion matrices, model structures, and
@@ -355,6 +394,7 @@ export default function WekaPage() {
                       <th>Typical purpose</th>
                     </tr>
                   </thead>
+
                   <tbody>
                     <tr>
                       <td>J48</td>
@@ -364,6 +404,7 @@ export default function WekaPage() {
                         decision rules.
                       </td>
                     </tr>
+
                     <tr>
                       <td>Random Forest</td>
                       <td>Ensemble learning</td>
@@ -372,6 +413,7 @@ export default function WekaPage() {
                         and regression.
                       </td>
                     </tr>
+
                     <tr>
                       <td>Naive Bayes</td>
                       <td>Probabilistic classification</td>
@@ -380,6 +422,7 @@ export default function WekaPage() {
                         assumptions.
                       </td>
                     </tr>
+
                     <tr>
                       <td>SMO</td>
                       <td>Support Vector Machine</td>
@@ -388,6 +431,7 @@ export default function WekaPage() {
                         approach.
                       </td>
                     </tr>
+
                     <tr>
                       <td>IBk</td>
                       <td>Instance-based learning</td>
@@ -395,6 +439,7 @@ export default function WekaPage() {
                         Classification using the k-nearest-neighbour approach.
                       </td>
                     </tr>
+
                     <tr>
                       <td>SimpleKMeans</td>
                       <td>Clustering</td>
@@ -408,6 +453,66 @@ export default function WekaPage() {
               </div>
             </div>
 
+            {/* NEW: WEKA CLUSTER LINKS */}
+            <div className="content-section">
+              <SectionHeading
+                eyebrow="Explore WEKA in depth"
+                title="Go deeper into classification and clustering."
+                body="The WEKA guide provides the foundation. These focused resources explore two major machine-learning workflows and their practical interpretation in greater depth."
+              />
+
+              <div className="three-column">
+                <article className="info-card">
+                  <h3>WEKA Classification</h3>
+
+                  <p>
+                    Learn how supervised classification works in WEKA,
+                    including J48 decision trees, Naive Bayes, Random Forest,
+                    IBk, training and testing, cross-validation, confusion
+                    matrices, precision, recall, and F-measure.
+                  </p>
+
+                  <Link
+                    href="/technologies/weka/classification"
+                    className="text-link"
+                  >
+                    Read the classification guide →
+                  </Link>
+                </article>
+
+                <article className="info-card">
+                  <h3>WEKA Clustering & Evaluation</h3>
+
+                  <p>
+                    Explore unsupervised learning with SimpleKMeans, cluster
+                    selection, centroids, distance, cluster evaluation,
+                    interpretation, limitations, and academic reporting.
+                  </p>
+
+                  <Link
+                    href="/technologies/weka/clustering-evaluation"
+                    className="text-link"
+                  >
+                    Read the clustering guide →
+                  </Link>
+                </article>
+
+                <article className="info-card">
+                  <h3>WEKA Academic Projects</h3>
+
+                  <p>
+                    Bring the different parts of a WEKA experiment together:
+                    dataset preparation, algorithm selection, evaluation,
+                    interpretation, and technical documentation.
+                  </p>
+
+                  <Link href="/services" className="text-link">
+                    Explore technical services →
+                  </Link>
+                </article>
+              </div>
+            </div>
+
             <div className="content-section">
               <SectionHeading
                 eyebrow="Model evaluation"
@@ -418,10 +523,12 @@ export default function WekaPage() {
               <div className="three-column">
                 <article className="info-card">
                   <h3>Precision</h3>
+
                   <p>
                     Measures how many instances predicted as positive were
                     actually positive.
                   </p>
+
                   <div className="formula">
                     Precision = TP / (TP + FP)
                   </div>
@@ -429,10 +536,12 @@ export default function WekaPage() {
 
                 <article className="info-card">
                   <h3>Recall</h3>
+
                   <p>
                     Measures how many of the actual positive instances were
                     correctly identified.
                   </p>
+
                   <div className="formula">
                     Recall = TP / (TP + FN)
                   </div>
@@ -440,10 +549,12 @@ export default function WekaPage() {
 
                 <article className="info-card">
                   <h3>F1-score</h3>
+
                   <p>
                     Combines precision and recall into a single harmonic-mean
                     measure.
                   </p>
+
                   <div className="formula">
                     F1 = 2 × (Precision × Recall) / (Precision + Recall)
                   </div>
@@ -474,6 +585,7 @@ export default function WekaPage() {
                       <th>R</th>
                     </tr>
                   </thead>
+
                   <tbody>
                     <tr>
                       <td>Primary workflow</td>
@@ -481,24 +593,28 @@ export default function WekaPage() {
                       <td>Code-first</td>
                       <td>Code-first</td>
                     </tr>
+
                     <tr>
                       <td>Learning curve</td>
                       <td>Accessible for beginners</td>
                       <td>Requires Python proficiency</td>
                       <td>Requires R proficiency</td>
                     </tr>
+
                     <tr>
                       <td>Experimentation</td>
                       <td>Highly visual</td>
                       <td>Highly programmable</td>
                       <td>Highly programmable</td>
                     </tr>
+
                     <tr>
                       <td>Academic methodology</td>
                       <td>Strong for structured experiments</td>
                       <td>Highly flexible</td>
                       <td>Strong statistical ecosystem</td>
                     </tr>
+
                     <tr>
                       <td>Production development</td>
                       <td>More specialized</td>
@@ -520,6 +636,7 @@ export default function WekaPage() {
               <div className="three-column">
                 <article className="info-card">
                   <h3>Dataset preparation</h3>
+
                   <p>
                     Guidance on ARFF conversion, preprocessing, missing values,
                     feature selection, class imbalance, and dataset structure.
@@ -528,6 +645,7 @@ export default function WekaPage() {
 
                 <article className="info-card">
                   <h3>Experimental design</h3>
+
                   <p>
                     Support for selecting algorithms, configuring evaluation
                     strategies, comparing models, and documenting parameters.
@@ -536,6 +654,7 @@ export default function WekaPage() {
 
                 <article className="info-card">
                   <h3>Results interpretation</h3>
+
                   <p>
                     Help understanding confusion matrices, performance metrics,
                     model structures, comparative results, and limitations.
@@ -544,6 +663,7 @@ export default function WekaPage() {
 
                 <article className="info-card">
                   <h3>Methodology writing</h3>
+
                   <p>
                     Technical review of methodology sections, experiment
                     descriptions, tables, figures, and academic explanations.
@@ -552,6 +672,7 @@ export default function WekaPage() {
 
                 <article className="info-card">
                   <h3>WEKA implementation</h3>
+
                   <p>
                     Practical guidance for configuring the Explorer,
                     Experimenter, Knowledge Flow, filters, classifiers, and
@@ -561,6 +682,7 @@ export default function WekaPage() {
 
                 <article className="info-card">
                   <h3>Java API integration</h3>
+
                   <p>
                     Guidance for advanced projects that integrate WEKA's Java
                     functionality into custom applications or broader
@@ -579,6 +701,7 @@ export default function WekaPage() {
               <div className="faq-list">
                 <details>
                   <summary>What is WEKA used for?</summary>
+
                   <p>
                     WEKA is a machine-learning and data-mining workbench used
                     for tasks including preprocessing, classification,
@@ -589,6 +712,7 @@ export default function WekaPage() {
 
                 <details>
                   <summary>What is an ARFF file?</summary>
+
                   <p>
                     ARFF stands for Attribute-Relation File Format. It defines
                     the structure of a dataset through a relation declaration,
@@ -599,6 +723,7 @@ export default function WekaPage() {
 
                 <details>
                   <summary>What is the difference between J48 and C4.5?</summary>
+
                   <p>
                     J48 is WEKA's implementation of the C4.5 decision-tree
                     algorithm. It provides a WEKA-compatible implementation of
@@ -610,6 +735,7 @@ export default function WekaPage() {
                   <summary>
                     Can WEKA be used for text-mining projects?
                   </summary>
+
                   <p>
                     Yes. WEKA supports text-processing workflows, including
                     converting string attributes into machine-learning features
@@ -621,6 +747,7 @@ export default function WekaPage() {
                   <summary>
                     Can you help with a WEKA academic project?
                   </summary>
+
                   <p>
                     ProjectAssignments provides technical guidance covering
                     dataset preparation, preprocessing, algorithm selection,
@@ -633,6 +760,7 @@ export default function WekaPage() {
                   <summary>
                     Does ProjectAssignments guarantee a particular grade?
                   </summary>
+
                   <p>
                     No. Our role is to provide technical guidance, research
                     support, and structured assistance. Final academic
@@ -646,6 +774,7 @@ export default function WekaPage() {
             <div className="content-section">
               <div className="content-note">
                 <strong>Responsible academic use</strong>
+
                 <p>
                   ProjectAssignments provides technical guidance and
                   educational support intended to help students understand
@@ -660,7 +789,6 @@ export default function WekaPage() {
         </section>
 
         <CTA />
-
       </main>
 
       <Footer />

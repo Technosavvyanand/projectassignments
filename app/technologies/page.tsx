@@ -365,6 +365,49 @@ export default function TechnologiesPage() {
                 <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
+
+            {/* Featured NASM Technology */}
+            <div
+              className="consultancy-card"
+              style={{
+                marginTop: '20px',
+                padding: '30px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '28px',
+                flexWrap: 'wrap',
+              }}
+            >
+              <div style={{ maxWidth: '760px' }}>
+                <p className="eyebrow">FEATURED TECHNOLOGY</p>
+
+                <h3 style={{ marginBottom: '10px' }}>
+                  NASM Assembly Language &amp; x86-64 Programming
+                </h3>
+
+                <p style={{ marginBottom: 0 }}>
+                  Explore our comprehensive NASM guide covering x86-64
+                  assembly fundamentals, registers, instructions, memory
+                  addressing, stacks, procedures, Linux system calls,
+                  debugging, and practical low-level programming concepts.
+                </p>
+              </div>
+
+              <Link
+                href="/technologies/nasm"
+                className="button button-primary"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  flexShrink: 0,
+                }}
+              >
+                Explore NASM
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </section>
 

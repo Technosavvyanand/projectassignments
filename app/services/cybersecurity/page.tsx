@@ -360,6 +360,21 @@ export default function CybersecurityPage() {
                     <ArrowRight size={16} aria-hidden="true" />
                   </Link>
                 )}
+                {area.title === 'Vulnerability Assessment & Risk Analysis' && (
+  <Link
+    href="/services/cybersecurity/vulnerability-assessment"
+    className="button button-secondary"
+    style={{
+      marginTop: 18,
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: 7,
+    }}
+  >
+    Explore Vulnerability Assessment
+    <ArrowRight size={16} aria-hidden="true" />
+  </Link>
+)}
               </article>
             ))}
           </div>

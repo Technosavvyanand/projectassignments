@@ -68,41 +68,57 @@ const expertiseAreas = [
     title: 'Penetration Testing & Security Reports',
     description:
       'Guidance with authorised security testing, assessment methodology, evidence interpretation, findings and professional reporting.',
+    href: '/services/cybersecurity/penetration-testing',
+    buttonLabel: 'Explore Penetration Testing',
   },
   {
     title: 'Vulnerability Assessment & Risk Analysis',
     description:
       'Support with vulnerability identification, risk classification, evidence organisation and remediation recommendations.',
+    href: '/services/cybersecurity/vulnerability-assessment',
+    buttonLabel: 'Explore Vulnerability Assessment',
   },
   {
     title: 'Network Security',
     description:
       'Network analysis, traffic interpretation, architecture review, packet analysis and security documentation.',
+    href: '/services/cybersecurity/network-security',
+    buttonLabel: 'Explore Network Security',
   },
   {
     title: 'Digital Forensics',
     description:
       'Structured guidance for forensic methodology, evidence interpretation, investigation workflows and technical reporting.',
+    href: '/services/cybersecurity/digital-forensics',
+    buttonLabel: 'Explore Digital Forensics',
   },
   {
     title: 'Security Operations & SIEM',
     description:
       'Support with log analysis, incident investigation, security monitoring concepts and SIEM-based technical projects.',
+    href: '/services/cybersecurity/security-operations-siem',
+    buttonLabel: 'Explore Security Operations & SIEM',
   },
   {
     title: 'Cloud Security',
     description:
       'Security considerations for AWS, Azure and cloud-based architectures, including identity, access, configuration and risk.',
+    href: '/services/cybersecurity/cloud-security',
+    buttonLabel: 'Explore Cloud Security',
   },
   {
     title: 'Secure Software Development',
     description:
       'Security-focused programming, secure design principles, vulnerability analysis and application security documentation.',
+    href: '/services/cybersecurity/secure-software-development',
+    buttonLabel: 'Explore Secure Software Development',
   },
   {
     title: 'Cybersecurity Risk & Compliance',
     description:
       'Guidance with cybersecurity risk assessment, security controls, governance, compliance frameworks and structured analysis.',
+    href: '/services/cybersecurity/risk-compliance',
+    buttonLabel: 'Explore Risk & Compliance',
   },
 ]
 
@@ -248,7 +264,7 @@ export default function CybersecurityPage() {
 
               <div className="hero-actions">
                 <a
-                  href="https://wa.me/918595089080?text=Hi%2C%20I%20would%20like%20to%20discuss%20a%20cybersecurity%20project."
+                  href="https://wa.me/918595089080?text=Hi%2C%20I%20would%20like%20to%20discuss%20a%20cybersecurity%20project"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="button button-primary"
@@ -345,36 +361,19 @@ export default function CybersecurityPage() {
 
                 <p>{area.description}</p>
 
-                {area.title === 'Penetration Testing & Security Reports' && (
-                  <Link
-                    href="/services/cybersecurity/penetration-testing"
-                    className="button button-secondary"
-                    style={{
-                      marginTop: 18,
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 7,
-                    }}
-                  >
-                    Explore Penetration Testing
-                    <ArrowRight size={16} aria-hidden="true" />
-                  </Link>
-                )}
-                {area.title === 'Vulnerability Assessment & Risk Analysis' && (
-  <Link
-    href="/services/cybersecurity/vulnerability-assessment"
-    className="button button-secondary"
-    style={{
-      marginTop: 18,
-      display: 'inline-flex',
-      alignItems: 'center',
-      gap: 7,
-    }}
-  >
-    Explore Vulnerability Assessment
-    <ArrowRight size={16} aria-hidden="true" />
-  </Link>
-)}
+                <Link
+                  href={area.href}
+                  className="button button-secondary"
+                  style={{
+                    marginTop: 18,
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 7,
+                  }}
+                >
+                  {area.buttonLabel}
+                  <ArrowRight size={16} aria-hidden="true" />
+                </Link>
               </article>
             ))}
           </div>
@@ -529,6 +528,7 @@ export default function CybersecurityPage() {
                 style={{ padding: 28 }}
               >
                 <h3>{audience.title}</h3>
+
                 <p>{audience.description}</p>
               </article>
             ))}
@@ -666,7 +666,7 @@ export default function CybersecurityPage() {
             </p>
 
             <a
-              href="https://wa.me/918595089080?text=Hi%2C%20I%20would%20like%20to%20discuss%20a%20cybersecurity%20project."
+              href="https://wa.me/918595089080?text=Hi%2C%20I%20would%20like%20to%20discuss%20a%20cybersecurity%20project"
               target="_blank"
               rel="noopener noreferrer"
               className="button button-primary"

@@ -12,6 +12,9 @@ const monoFont = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '600'], var
 export const metadata: Metadata = {
   title: { default: 'ProjectAssignments | Technical academic & research consultancy', template: '%s | ProjectAssignments' },
   description: 'Cybersecurity, IT and programming assignments, technical artefacts, MBA dissertation support, and DBA thesis guidance.',
+  icons: {
+  icon: "/icon.png",
+},
   generator: 'ProjectAssignments',
   openGraph: { title: 'ProjectAssignments | Technical academic & research consultancy', description: 'Ethical, expert guidance for technical assignments and postgraduate research.', type: 'website' },
 }

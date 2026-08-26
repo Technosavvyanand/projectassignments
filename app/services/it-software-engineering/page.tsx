@@ -1,13 +1,13 @@
 import {
-    ArrowRight,
-    CheckCircle2,
-    Cloud,
-    Code2,
-    Database,
-    GitBranch,
-    Layers3,
-    Server,
-    ShieldCheck,
+  ArrowRight,
+  CheckCircle2,
+  Cloud,
+  Code2,
+  Database,
+  GitBranch,
+  Layers3,
+  Server,
+  ShieldCheck,
 } from 'lucide-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -17,8 +17,10 @@ import { Footer, PageHero } from '@/components/site'
 export const metadata: Metadata = {
   title:
     'IT & Software Engineering Project Consultancy | ProjectAssignments.com',
+
   description:
-    'Technical guidance for software engineering, system architecture, cloud infrastructure, databases, APIs, DevOps, IT capstone projects, and technical documentation.',
+    'Technical guidance for software engineering, system architecture, cloud architecture, databases, APIs, DevOps, testing, and IT capstone projects.',
+
   keywords: [
     'software engineering project consultancy',
     'IT project consultancy',
@@ -33,15 +35,17 @@ export const metadata: Metadata = {
     'software engineering academic support',
     'IT systems project support',
   ],
+
   alternates: {
     canonical:
       'https://projectassignments.com/services/it-software-engineering',
   },
+
   openGraph: {
     title:
       'IT & Software Engineering Project Consultancy | ProjectAssignments.com',
     description:
-      'Technical guidance for software engineering, system architecture, cloud infrastructure, databases, APIs, DevOps, IT capstone projects, and technical documentation.',
+      'Technical guidance for software engineering, system architecture, cloud architecture, databases, APIs, DevOps, testing, and IT capstone projects.',
     url:
       'https://projectassignments.com/services/it-software-engineering',
     siteName: 'ProjectAssignments',
@@ -53,6 +57,7 @@ const serviceAreas = [
   {
     icon: <Code2 size={24} aria-hidden="true" />,
     title: 'Software Engineering',
+    href: '/services/it-software-engineering/software-engineering',
     description:
       'Guidance across software development concepts, application architecture, programming practices, debugging, testing, version control, and maintainable system design.',
     topics:
@@ -61,14 +66,16 @@ const serviceAreas = [
   {
     icon: <Layers3 size={24} aria-hidden="true" />,
     title: 'System Architecture & Design',
+    href: '/services/it-software-engineering/system-architecture-design',
     description:
-      'Translate functional requirements into structured system architectures, component relationships, data flows, interfaces, and technical design decisions.',
+      'Translate functional requirements into structured system architectures, component relationships, data flows, interfaces, and defensible technical design decisions.',
     topics:
       'System architecture, UML, component design, data flow, requirements, SRS, technical specifications',
   },
   {
     icon: <Cloud size={24} aria-hidden="true" />,
     title: 'Cloud Architecture',
+    href: '/services/it-software-engineering/cloud-architecture',
     description:
       'Technical guidance for designing and understanding cloud-based systems, infrastructure components, deployment models, identity, scalability, and availability.',
     topics:
@@ -77,6 +84,7 @@ const serviceAreas = [
   {
     icon: <GitBranch size={24} aria-hidden="true" />,
     title: 'DevOps & Containerization',
+    href: '/services/it-software-engineering/devops-containerization',
     description:
       'Understand how development and operations practices connect through containerization, deployment workflows, automation, and infrastructure management.',
     topics:
@@ -85,6 +93,7 @@ const serviceAreas = [
   {
     icon: <Database size={24} aria-hidden="true" />,
     title: 'Database Design & SQL',
+    href: '/services/it-software-engineering/database-design-sql',
     description:
       'Guidance on relational database architecture, data modelling, normalization, SQL development, transactions, indexing, and database integration.',
     topics:
@@ -93,6 +102,7 @@ const serviceAreas = [
   {
     icon: <Server size={24} aria-hidden="true" />,
     title: 'API & Application Integration',
+    href: '/services/it-software-engineering/api-application-integration',
     description:
       'Understand how applications communicate through APIs and how different software components can be integrated into a coherent technical architecture.',
     topics:
@@ -101,6 +111,7 @@ const serviceAreas = [
   {
     icon: <ShieldCheck size={24} aria-hidden="true" />,
     title: 'Testing & Quality Assurance',
+    href: '/services/it-software-engineering/testing-quality-assurance',
     description:
       'Structured guidance for software testing, validation, test planning, defect analysis, quality assurance, and technical evidence.',
     topics:
@@ -109,6 +120,7 @@ const serviceAreas = [
   {
     icon: <CheckCircle2 size={24} aria-hidden="true" />,
     title: 'Technical Documentation',
+    href: '/services/it-software-engineering/technical-documentation',
     description:
       'Develop clearer technical documentation around requirements, architecture, implementation, testing, deployment, and project evaluation.',
     topics:
@@ -224,7 +236,7 @@ const faqs = [
   {
     question: 'Can you help with database design and SQL?',
     answer:
-      'Yes. Support includes relational modelling, ER diagrams, normalization, SQL queries, database architecture, transactions, indexing, PostgreSQL and other relational database concepts.',
+      'Yes. Support includes relational modelling, ER diagrams, normalization, SQL queries, database architecture, transactions, indexing, PostgreSQL, and other relational database concepts.',
   },
   {
     question: 'Can you help with Docker and DevOps projects?',
@@ -245,6 +257,7 @@ const faqs = [
 
 const softwareEngineeringSchema = {
   '@context': 'https://schema.org',
+
   '@graph': [
     {
       '@type': 'Service',
@@ -261,6 +274,7 @@ const softwareEngineeringSchema = {
       areaServed: 'Worldwide',
       serviceType: 'IT and software engineering technical consultancy',
     },
+
     {
       '@type': 'BreadcrumbList',
       '@id':
@@ -287,6 +301,7 @@ const softwareEngineeringSchema = {
         },
       ],
     },
+
     {
       '@type': 'FAQPage',
       mainEntity: faqs.map((faq) => ({
@@ -305,6 +320,7 @@ export default function ITSoftwareEngineeringPage() {
   return (
     <>
       <main>
+        {/* Hero */}
         <PageHero
           eyebrow="IT SYSTEMS • SOFTWARE ENGINEERING • CLOUD"
           title="IT & Software Engineering Projects, Architecture & Technical Guidance"
@@ -328,9 +344,9 @@ export default function ITSoftwareEngineeringPage() {
               </h2>
 
               <p style={{ marginTop: '18px' }}>
-                Modern IT projects rarely involve a single programming language
-                or isolated technical component. A complete solution may
-                combine application code, databases, APIs, cloud
+                Modern IT projects rarely involve a single programming
+                language or isolated technical component. A complete solution
+                may combine application code, databases, APIs, cloud
                 infrastructure, containers, security controls, testing
                 processes, and technical documentation.
               </p>
@@ -370,7 +386,16 @@ export default function ITSoftwareEngineeringPage() {
 
             <div className="expertise-grid">
               {serviceAreas.map((service) => (
-                <article className="expertise-card" key={service.title}>
+                <Link
+                  href={service.href}
+                  className="expertise-card"
+                  key={service.title}
+                  style={{
+                    display: 'block',
+                    color: 'inherit',
+                    textDecoration: 'none',
+                  }}
+                >
                   <div
                     className="icon-box"
                     style={{ marginBottom: '20px' }}
@@ -391,7 +416,22 @@ export default function ITSoftwareEngineeringPage() {
                   >
                     <strong>Common areas:</strong> {service.topics}
                   </p>
-                </article>
+
+                  <div
+                    style={{
+                      marginTop: '20px',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      fontSize: '14px',
+                      fontWeight: 700,
+                      color: '#1167d8',
+                    }}
+                  >
+                    Explore service
+                    <ArrowRight size={15} aria-hidden="true" />
+                  </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -503,6 +543,7 @@ export default function ITSoftwareEngineeringPage() {
             <div className="three-column">
               <article className="info-card">
                 <h3>Cloud Architecture</h3>
+
                 <p>
                   Understand cloud components, architecture patterns,
                   deployment models, availability, scalability, and identity
@@ -512,6 +553,7 @@ export default function ITSoftwareEngineeringPage() {
 
               <article className="info-card">
                 <h3>Containerization</h3>
+
                 <p>
                   Work through container concepts, Docker images, containers,
                   networking, volumes, configuration, and deployment
@@ -521,6 +563,7 @@ export default function ITSoftwareEngineeringPage() {
 
               <article className="info-card">
                 <h3>Infrastructure & Automation</h3>
+
                 <p>
                   Understand infrastructure-as-code concepts, repeatable
                   deployment, configuration management, CI/CD principles, and
@@ -549,13 +592,16 @@ export default function ITSoftwareEngineeringPage() {
 
               <p>
                 A strong software project needs a clear understanding of how
-                data is stored, accessed, validated, transformed, and exchanged
-                between system components.
+                data is stored, accessed, validated, transformed, and
+                exchanged between system components.
               </p>
             </div>
 
             <div className="two-column">
-              <article className="consultancy-card" style={{ padding: '30px' }}>
+              <article
+                className="consultancy-card"
+                style={{ padding: '30px' }}
+              >
                 <div
                   className="icon-box"
                   style={{ marginBottom: '20px' }}
@@ -580,7 +626,10 @@ export default function ITSoftwareEngineeringPage() {
                 </ul>
               </article>
 
-              <article className="consultancy-card" style={{ padding: '30px' }}>
+              <article
+                className="consultancy-card"
+                style={{ padding: '30px' }}
+              >
                 <div
                   className="icon-box"
                   style={{ marginBottom: '20px' }}
@@ -703,7 +752,8 @@ export default function ITSoftwareEngineeringPage() {
               <p>
                 IT and software engineering projects often require students to
                 explain not only what they built, but why particular technical
-                decisions were made and how the resulting system was evaluated.
+                decisions were made and how the resulting system was
+                evaluated.
               </p>
             </div>
 
@@ -711,6 +761,7 @@ export default function ITSoftwareEngineeringPage() {
               {audiences.map((audience) => (
                 <article className="audience-card" key={audience.title}>
                   <h3>{audience.title}</h3>
+
                   <p>{audience.description}</p>
                 </article>
               ))}
@@ -825,7 +876,7 @@ export default function ITSoftwareEngineeringPage() {
               </p>
 
               <a
-                href="https://wa.me/918595089080?text=Hi%2C%20I%20would%20like%20to%20discuss%20an%20IT%20or%20software%20engineering%20project."
+                href="https://wa.me/918595089080?text=Hi%2C%20I%20would%20like%20to%20discuss%20an%20IT%20or%20software%20engineering%20project"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="button button-primary"

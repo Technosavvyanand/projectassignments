@@ -1,14 +1,18 @@
 import {
-    ArrowRight,
-    Clock3,
-    ExternalLink,
-    Sparkles,
+  ArrowRight,
+  Clock3,
+  ExternalLink,
+  Sparkles,
 } from 'lucide-react'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import { KnowledgeBoostHeroVisual } from '@/components/knowledgeboost/hero-visual'
+import {
+  getAllKnowledgeBoostArticles,
+  type KnowledgeBoostArticle,
+} from '@/lib/knowledgeboost'
 
 export const metadata: Metadata = {
   title: 'KnowledgeBoost — Technology Worth Knowing',
@@ -30,85 +34,36 @@ export const metadata: Metadata = {
     'emerging technology',
   ],
   alternates: {
-    canonical:
-      'https://projectassignments.com/knowledgeboost',
+    canonical: 'https://projectassignments.com/knowledgeboost',
   },
   openGraph: {
     title: 'KnowledgeBoost — Technology Worth Knowing',
     description:
       'Technology worth knowing. Explore ideas, advancements, research, and practical knowledge across the technology landscape.',
-    url:
-      'https://projectassignments.com/knowledgeboost',
+    url: 'https://projectassignments.com/knowledgeboost',
     siteName: 'KnowledgeBoost',
     type: 'website',
     images: [
       {
-        url:
-          'https://projectassignments.com/images/kb-logo.png',
+        url: 'https://projectassignments.com/images/kb-logo.png',
         alt: 'KnowledgeBoost — Technology Worth Knowing',
       },
     ],
   },
 }
 
-type ArticleType =
-  | 'News'
-  | 'Explainer'
-  | 'Deep Dive'
-  | 'Tutorial'
-  | 'Research'
-  | 'Opinion'
-  | 'Discussion'
-
-type Article = {
-  slug: string
-  title: string
-  excerpt: string
-  category: string
-  categories?: string[]
-  type: ArticleType
-  date: string
-  readingTime: string
-  cover: string
-  featured?: boolean
-  author: string
-  projectAssignmentsRelevance?:
-    | 'low'
-    | 'medium'
-    | 'high'
-}
-
 /* --------------------------------------------------------------------------
    ARTICLES
 
-   For now these are maintained directly in VS Code.
+   Articles are now loaded from:
 
-   Later this can be replaced with:
+       content/knowledgeboost/*.mdx
 
-       getArticlesFromCMS()
-
-   without changing the homepage structure.
+   The homepage does not need to know where the articles come from.
+   Later, this loader can be replaced internally by a CMS/database.
 -------------------------------------------------------------------------- */
 
-const articles: Article[] = [
-  {
-    slug: 'sample-article',
-    title:
-      'Your First KnowledgeBoost Article Goes Here',
-    excerpt:
-      'Replace this article with the first real piece of technology knowledge you want to publish on KnowledgeBoost.',
-    category: 'Emerging Technology',
-    categories: ['Emerging Technology'],
-    type: 'Explainer',
-    date: '2026-08-26',
-    readingTime: '5 min read',
-    cover:
-      '/images/knowledgeboost/sample-article.jpg',
-    featured: true,
-    author: 'KnowledgeBoost Editorial',
-    projectAssignmentsRelevance: 'medium',
-  },
-]
+const articles = getAllKnowledgeBoostArticles()
 
 /* --------------------------------------------------------------------------
    CATEGORIES
@@ -161,6 +116,11 @@ function getArticlesByCategory(category: string) {
     .filter((article) =>
       article.categories?.includes(category),
     )
+    .sort(
+      (a, b) =>
+        new Date(b.date).getTime() -
+        new Date(a.date).getTime(),
+    )
     .slice(0, 3)
 }
 
@@ -187,10 +147,8 @@ const knowledgeBoostSchema = {
       '@type': 'WebPage',
       '@id':
         'https://projectassignments.com/knowledgeboost#webpage',
-      url:
-        'https://projectassignments.com/knowledgeboost',
-      name:
-        'KnowledgeBoost — Technology Worth Knowing',
+      url: 'https://projectassignments.com/knowledgeboost',
+      name: 'KnowledgeBoost — Technology Worth Knowing',
       description:
         'KnowledgeBoost is a technology publication covering AI, cybersecurity, software engineering, DevOps, databases, data science, quantum computing, and emerging technologies.',
       isPartOf: {
@@ -202,10 +160,8 @@ const knowledgeBoostSchema = {
     {
       '@type': 'Organization',
       name: 'KnowledgeBoost',
-      url:
-        'https://projectassignments.com/knowledgeboost',
-      logo:
-        'https://projectassignments.com/images/kb-logo.png',
+      url: 'https://projectassignments.com/knowledgeboost',
+      logo: 'https://projectassignments.com/images/kb-logo.png',
       description:
         'A technology publication and knowledge community focused on learning, exploration, discussion, and knowledge sharing.',
     },
@@ -223,7 +179,7 @@ export default function KnowledgeBoostPage() {
           PAGE-SPECIFIC LAYOUT CSS
 
           The animated visual itself is styled by:
-          app/knowledgeboost/knowledgeboost.css
+          components/knowledgeboost/hero-visual
 
           These rules handle the homepage around it.
       ------------------------------------------------------------------ */}
@@ -1091,8 +1047,7 @@ export default function KnowledgeBoostPage() {
 
           .kb-hero-grid::before {
             right: 50%;
-            transform:
-              translate(50%, -50%);
+            transform: translate(50%, -50%);
           }
 
           .kb-featured-grid {
@@ -1633,7 +1588,7 @@ function SectionHeading({
 function ArticleCard({
   article,
 }: {
-  article: Article
+  article: KnowledgeBoostArticle
 }) {
   return (
     <Link

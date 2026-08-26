@@ -17,15 +17,14 @@ import {
   X,
 } from 'lucide-react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-
 
 /* =========================================================
    BRAND
    ========================================================= */
 
 export const logoUrl = '/projectassignments-logo.png'
-
 
 export function Logo({ compact = false }: { compact?: boolean }) {
   return (
@@ -42,7 +41,6 @@ export function Logo({ compact = false }: { compact?: boolean }) {
   )
 }
 
-
 /* =========================================================
    NAVIGATION
    ========================================================= */
@@ -56,15 +54,22 @@ const navItems = [
   ['Policies', '/policies'],
 ]
 
-
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
+
+  /*
+   * KnowledgeBoost uses its own visual identity.
+   * Therefore the normal ProjectAssignments navbar is
+   * intentionally hidden on all KnowledgeBoost routes.
+   */
+  if (pathname === '/knowledgeboost') {
+    return null
+  }
 
   return (
     <header className="site-header">
-
       <div className="container nav-inner">
-
         <Logo />
 
         <nav
@@ -80,6 +85,85 @@ export function Navbar() {
             </Link>
           ))}
         </nav>
+
+        {/* =====================================================
+            KNOWLEDGEBOOST — DESKTOP
+            Special secondary community button
+           ===================================================== */}
+
+        <Link
+          href="/knowledgeboost"
+          aria-label="KnowledgeBoost — The Tech Knowledge Community"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '7px',
+            flexShrink: 0,
+            padding: '9px 14px',
+            minHeight: '40px',
+            borderRadius: '10px',
+            backgroundColor: '#ffb347',
+            color: '#17212b',
+            border: '1px solid #ff9f1c',
+            fontSize: '13px',
+            fontWeight: 800,
+            lineHeight: 1,
+            textDecoration: 'none',
+            whiteSpace: 'nowrap',
+            boxShadow:
+              '0 2px 8px rgba(15, 23, 42, 0.10)',
+            transition:
+              'background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease',
+          }}
+          onMouseEnter={(event) => {
+            event.currentTarget.style.backgroundColor =
+              '#ffa726'
+            event.currentTarget.style.transform =
+              'translateY(-1px)'
+            event.currentTarget.style.boxShadow =
+              '0 5px 14px rgba(15, 23, 42, 0.16)'
+          }}
+          onMouseLeave={(event) => {
+            event.currentTarget.style.backgroundColor =
+              '#ffb347'
+            event.currentTarget.style.transform =
+              'translateY(0)'
+            event.currentTarget.style.boxShadow =
+              '0 2px 8px rgba(15, 23, 42, 0.10)'
+          }}
+        >
+          <span
+            aria-hidden="true"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '22px',
+              height: '22px',
+              flexShrink: 0,
+              borderRadius: '7px',
+              backgroundColor:
+                'rgba(23, 33, 43, 0.10)',
+              color: '#17212b',
+            }}
+          >
+            <Sparkles size={13} />
+          </span>
+
+          <span
+            style={{
+              color: '#17212b',
+              fontWeight: 800,
+            }}
+          >
+            KnowledgeBoost
+          </span>
+        </Link>
+
+        {/* =====================================================
+            MAIN CTA
+           ===================================================== */}
 
         <Link
           href="/contact"
@@ -99,17 +183,19 @@ export function Navbar() {
           aria-expanded={open}
           onClick={() => setOpen(!open)}
         >
-          {open
-            ? <X size={22} />
-            : <Menu size={22} />
-          }
+          {open ? (
+            <X size={22} />
+          ) : (
+            <Menu size={22} />
+          )}
         </button>
-
       </div>
 
+      {/* =======================================================
+          MOBILE NAVIGATION
+         ======================================================= */}
 
       <AnimatePresence>
-
         {open && (
           <motion.nav
             initial={{
@@ -127,7 +213,6 @@ export function Navbar() {
             className="mobile-nav"
             aria-label="Mobile navigation"
           >
-
             {navItems.map(([label, href]) => (
               <Link
                 key={href}
@@ -138,6 +223,59 @@ export function Navbar() {
               </Link>
             ))}
 
+            {/* =================================================
+                KNOWLEDGEBOOST — MOBILE
+               ================================================= */}
+
+            <Link
+              href="/knowledgeboost"
+              aria-label="KnowledgeBoost — The Tech Knowledge Community"
+              onClick={() => setOpen(false)}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                width: '100%',
+                padding: '12px 16px',
+                borderRadius: '10px',
+                backgroundColor: '#ffb347',
+                color: '#17212b',
+                border: '1px solid #ff9f1c',
+                fontSize: '14px',
+                fontWeight: 800,
+                lineHeight: 1,
+                textDecoration: 'none',
+              }}
+            >
+              <span
+                aria-hidden="true"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '22px',
+                  height: '22px',
+                  flexShrink: 0,
+                  borderRadius: '7px',
+                  backgroundColor:
+                    'rgba(23, 33, 43, 0.10)',
+                  color: '#17212b',
+                }}
+              >
+                <Sparkles size={13} />
+              </span>
+
+              <span
+                style={{
+                  color: '#17212b',
+                  fontWeight: 800,
+                }}
+              >
+                KnowledgeBoost
+              </span>
+            </Link>
+
             <Link
               href="/contact"
               className="button button-primary"
@@ -146,16 +284,12 @@ export function Navbar() {
               Get Guidance
               <ArrowRight size={16} />
             </Link>
-
           </motion.nav>
         )}
-
       </AnimatePresence>
-
     </header>
   )
 }
-
 
 /* =========================================================
    FOOTER
@@ -164,11 +298,8 @@ export function Navbar() {
 export function Footer() {
   return (
     <footer className="site-footer">
-
       <div className="container footer-grid">
-
         <div>
-
           <Logo compact />
 
           <p className="footer-copy">
@@ -176,12 +307,9 @@ export function Footer() {
             research, assignments, projects, and
             postgraduate work.
           </p>
-
         </div>
 
-
         <div>
-
           <p className="footer-label">
             Explore
           </p>
@@ -194,12 +322,9 @@ export function Footer() {
               {label}
             </Link>
           ))}
-
         </div>
 
-
         <div>
-
           <p className="footer-label">
             Get in touch
           </p>
@@ -212,14 +337,10 @@ export function Footer() {
             Tell us about your project
             <ArrowRight size={14} />
           </Link>
-
         </div>
-
       </div>
 
-
       <div className="container footer-bottom">
-
         <span>
           © {new Date().getFullYear()} ProjectAssignments.
           All rights reserved.
@@ -228,13 +349,10 @@ export function Footer() {
         <span>
           Built for thoughtful work.
         </span>
-
       </div>
-
     </footer>
   )
 }
-
 
 /* =========================================================
    SECTION HEADING
@@ -259,7 +377,6 @@ export function SectionHeading({
           : ''
       }`}
     >
-
       <p className="eyebrow">
         {eyebrow}
       </p>
@@ -273,11 +390,9 @@ export function SectionHeading({
           {body}
         </p>
       )}
-
     </div>
   )
 }
-
 
 /* =========================================================
    PAGE HERO
@@ -294,9 +409,7 @@ export function PageHero({
 }) {
   return (
     <section className="page-hero">
-
       <div className="container page-hero-inner">
-
         <p className="eyebrow">
           {eyebrow}
         </p>
@@ -308,13 +421,10 @@ export function PageHero({
         <p className="hero-subtitle">
           {body}
         </p>
-
       </div>
-
     </section>
   )
 }
-
 
 /* =========================================================
    SERVICES
@@ -343,20 +453,16 @@ const services = [
   },
 ]
 
-
 export function ServicesGrid() {
   return (
     <div className="card-grid four-up">
-
       {services.map((service, i) => (
-
         <motion.article
           whileHover={{ y: -5 }}
           transition={{ duration: 0.2 }}
           className="service-card"
           key={service.title}
         >
-
           <div className="icon-box">
             {service.icon}
           </div>
@@ -380,15 +486,11 @@ export function ServicesGrid() {
             Explore service
             <ArrowRight size={15} />
           </Link>
-
         </motion.article>
-
       ))}
-
     </div>
   )
 }
-
 
 /* =========================================================
    TECHNOLOGIES
@@ -405,18 +507,14 @@ const technologies = [
   'Technical writing',
 ]
 
-
 export function TechnologyGrid() {
   return (
     <div className="tech-grid">
-
       {technologies.map((item, i) => (
-
         <div
           key={item}
           className="tech-item"
         >
-
           <span className="tech-number">
             {String(i + 1).padStart(2, '0')}
           </span>
@@ -426,22 +524,17 @@ export function TechnologyGrid() {
           </span>
 
           <ArrowRight size={15} />
-
         </div>
-
       ))}
-
     </div>
   )
 }
-
 
 /* =========================================================
    RESEARCH VISUAL
    ========================================================= */
 
 export function ResearchVisual() {
-
   const nodes = [
     {
       className:
@@ -480,12 +573,9 @@ export function ResearchVisual() {
       className="research-visual"
       aria-label="Interconnected research workflow showing cybersecurity, programming, thesis, and technical artefacts"
     >
-
       <div className="research-grid-lines" />
 
-
       {nodes.map((node) => (
-
         <motion.div
           key={node.label}
           className={node.className}
@@ -499,32 +589,25 @@ export function ResearchVisual() {
             ease: 'easeInOut',
           }}
         >
-
           {node.icon}
 
           <span>
             {node.label}
           </span>
-
         </motion.div>
-
       ))}
-
 
       <div className="research-line research-line-one" />
       <div className="research-line research-line-two" />
       <div className="research-line research-line-three" />
       <div className="research-line research-line-four" />
 
-
       <span className="research-caption">
         TECHNICAL ACADEMIC SUPPORT // 01
       </span>
-
     </div>
   )
 }
-
 
 /* =========================================================
    CALL TO ACTION
@@ -541,11 +624,8 @@ export function CTA({
         compact ? 'cta-compact' : ''
       }`}
     >
-
       <div className="container cta-inner">
-
         <div>
-
           <p className="eyebrow">
             Let's make your work clearer
           </p>
@@ -560,9 +640,7 @@ export function CTA({
             We'll help you find the clearest
             ethical next move.
           </p>
-
         </div>
-
 
         <Link
           href="/contact"
@@ -571,13 +649,10 @@ export function CTA({
           Get Guidance
           <ArrowRight size={17} />
         </Link>
-
       </div>
-
     </section>
   )
 }
-
 
 /* =========================================================
    FAQ
@@ -602,22 +677,17 @@ const faqs = [
   ],
 ]
 
-
 export function FAQ() {
-
   const [active, setActive] =
     useState<number | null>(0)
 
   return (
     <div className="faq-list">
-
       {faqs.map(([question, answer], i) => (
-
         <div
           className="faq-item"
           key={question}
         >
-
           <button
             onClick={() =>
               setActive(
@@ -628,7 +698,6 @@ export function FAQ() {
             }
             aria-expanded={active === i}
           >
-
             <span>
               {question}
             </span>
@@ -641,14 +710,10 @@ export function FAQ() {
                   : ''
               }
             />
-
           </button>
 
-
           <AnimatePresence initial={false}>
-
             {active === i && (
-
               <motion.div
                 initial={{
                   height: 0,
@@ -663,25 +728,17 @@ export function FAQ() {
                   opacity: 0,
                 }}
               >
-
                 <p>
                   {answer}
                 </p>
-
               </motion.div>
-
             )}
-
           </AnimatePresence>
-
         </div>
-
       ))}
-
     </div>
   )
 }
-
 
 /* =========================================================
    TESTIMONIALS
@@ -690,9 +747,7 @@ export function FAQ() {
 export function Testimonials() {
   return (
     <div className="testimonial-grid">
-
       <blockquote>
-
         <Quote size={24} />
 
         <p>
@@ -702,7 +757,6 @@ export function Testimonials() {
         </p>
 
         <footer>
-
           <strong>
             Postgraduate learner
           </strong>
@@ -710,14 +764,10 @@ export function Testimonials() {
           <span>
             Cybersecurity programme
           </span>
-
         </footer>
-
       </blockquote>
 
-
       <blockquote>
-
         <Quote size={24} />
 
         <p>
@@ -727,7 +777,6 @@ export function Testimonials() {
         </p>
 
         <footer>
-
           <strong>
             Doctoral researcher
           </strong>
@@ -735,31 +784,23 @@ export function Testimonials() {
           <span>
             Business administration
           </span>
-
         </footer>
-
       </blockquote>
-
     </div>
   )
 }
-
 
 /* =========================================================
    CONTACT FORM
    ========================================================= */
 
 export function ContactForm() {
-
   const [submitted, setSubmitted] =
     useState(false)
 
-
   if (submitted) {
     return (
-
       <div className="success-panel">
-
         <div className="icon-box">
           <Check />
         </div>
@@ -780,15 +821,11 @@ export function ContactForm() {
         >
           Send another message
         </button>
-
       </div>
-
     )
   }
 
-
   return (
-
     <form
       className="contact-form"
       onSubmit={(event) => {
@@ -796,11 +833,8 @@ export function ContactForm() {
         setSubmitted(true)
       }}
     >
-
       <div className="form-row">
-
         <label>
-
           Name
 
           <input
@@ -808,12 +842,9 @@ export function ContactForm() {
             name="name"
             placeholder="Your name"
           />
-
         </label>
 
-
         <label>
-
           Email
 
           <input
@@ -822,18 +853,13 @@ export function ContactForm() {
             name="email"
             placeholder="you@company.com"
           />
-
         </label>
-
       </div>
 
-
       <label>
-
         What are you working on?
 
         <select name="project">
-
           <option>
             Cybersecurity assignment
           </option>
@@ -857,14 +883,10 @@ export function ContactForm() {
           <option>
             Something else
           </option>
-
         </select>
-
       </label>
 
-
       <label>
-
         Tell us a little more
 
         <textarea
@@ -873,9 +895,7 @@ export function ContactForm() {
           rows={6}
           placeholder="A few lines about the brief, research question, technical challenge, or desired outcome."
         />
-
       </label>
-
 
       <button
         type="submit"
@@ -884,12 +904,9 @@ export function ContactForm() {
         Send your note
         <ArrowRight size={16} />
       </button>
-
     </form>
-
   )
 }
-
 
 /* =========================================================
    VALUES
@@ -913,18 +930,14 @@ const valueCards = [
   },
 ]
 
-
 export function ValuesGrid() {
   return (
     <div className="value-grid">
-
       {valueCards.map((value) => (
-
         <article
           className="value-card"
           key={value.title}
         >
-
           <div className="value-icon">
             {value.icon}
           </div>
@@ -936,11 +949,8 @@ export function ValuesGrid() {
           <p>
             {value.text}
           </p>
-
         </article>
-
       ))}
-
     </div>
   )
 }

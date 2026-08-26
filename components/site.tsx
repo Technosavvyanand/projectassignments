@@ -26,12 +26,18 @@ import { useState } from 'react'
 
 export const logoUrl = '/projectassignments-logo.png'
 
-export function Logo({ compact = false }: { compact?: boolean }) {
+export function Logo({
+  compact = false,
+}: {
+  compact?: boolean
+}) {
   return (
     <Link
       href="/"
       aria-label="ProjectAssignments home"
-      className={`brand-logo ${compact ? 'brand-logo-compact' : ''}`}
+      className={`brand-logo ${
+        compact ? 'brand-logo-compact' : ''
+      }`}
     >
       <img
         src={logoUrl}
@@ -59,9 +65,9 @@ export function Navbar() {
   const pathname = usePathname()
 
   /*
-   * KnowledgeBoost uses its own visual identity.
+   * KnowledgeBoost has its own visual identity.
    * Therefore the normal ProjectAssignments navbar is
-   * intentionally hidden on all KnowledgeBoost routes.
+   * intentionally hidden on the KnowledgeBoost route.
    */
   if (pathname === '/knowledgeboost') {
     return null
@@ -69,17 +75,39 @@ export function Navbar() {
 
   return (
     <header className="site-header">
-      <div className="container nav-inner">
+      <div
+        className="container nav-inner"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '20px',
+        }}
+      >
         <Logo />
+
+        {/* =====================================================
+            DESKTOP NAVIGATION
+           ===================================================== */}
 
         <nav
           className="desktop-nav"
           aria-label="Main navigation"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '20px',
+            flex: 1,
+            minWidth: 0,
+          }}
         >
           {navItems.map(([label, href]) => (
             <Link
               key={href}
               href={href}
+              style={{
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
+              }}
             >
               {label}
             </Link>
@@ -168,10 +196,18 @@ export function Navbar() {
         <Link
           href="/contact"
           className="button button-primary nav-cta"
+          style={{
+            flexShrink: 0,
+            whiteSpace: 'nowrap',
+          }}
         >
           Get Guidance
           <ArrowRight size={16} />
         </Link>
+
+        {/* =====================================================
+            MOBILE MENU BUTTON
+           ===================================================== */}
 
         <button
           className="menu-button"

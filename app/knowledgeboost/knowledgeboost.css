@@ -1,18 +1,459 @@
+/* ==========================================================
+   KNOWLEDGEBOOST HEADER
+========================================================== */
+
+.kb-header {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  background: #071018;
+  border-bottom: 1px solid rgba(110, 170, 220, 0.14);
+}
+
+.kb-header-inner {
+  width: min(1400px, calc(100% - 48px));
+  min-height: 92px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+
+  /*
+   * IMPORTANT:
+   * The logo stays on the left.
+   * kb-header-actions is pushed completely
+   * to the right by margin-left: auto.
+   */
+  flex-wrap: nowrap;
+}
+
+/* ----------------------------------------------------------
+   LOGO
+---------------------------------------------------------- */
+
+.kb-logo-link {
+  display: flex;
+  align-items: center;
+
+  flex: 0 0 auto;
+
+  text-decoration: none;
+}
+
+.kb-logo {
+  display: block;
+
+  width: 220px;
+  height: auto;
+
+  object-fit: contain;
+}
+
+/* ----------------------------------------------------------
+   RIGHT-SIDE HEADER ACTIONS
+---------------------------------------------------------- */
+
+.kb-header-actions {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 28px;
+
+  flex: 0 0 auto;
+}
+
+/* ----------------------------------------------------------
+   CATEGORIES WRAPPER
+---------------------------------------------------------- */
+
+.kb-categories-wrapper {
+  position: relative;
+
+  flex: 0 0 auto;
+}
+
+/* ----------------------------------------------------------
+   CATEGORIES BUTTON
+---------------------------------------------------------- */
+
+.kb-categories-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  min-height: 44px;
+  padding: 0 17px;
+
+  border: 1px solid rgba(90, 167, 245, 0.35);
+  border-radius: 9px;
+
+  background: rgba(22, 35, 49, 0.72);
+  color: #e5edf5;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.kb-categories-button:hover,
+.kb-categories-button-open {
+  background: rgba(31, 49, 68, 0.95);
+  border-color: rgba(245, 158, 11, 0.7);
+  color: #ffffff;
+}
+
+.kb-categories-button:hover {
+  transform: translateY(-1px);
+}
+
+.kb-categories-button svg:first-child {
+  color: #72b8ff;
+}
+
+.kb-categories-button-open svg:first-child {
+  color: #f59e0b;
+}
+
+.kb-categories-button svg:last-child {
+  transition: transform 0.2s ease;
+}
+
+.kb-chevron-open {
+  transform: rotate(180deg);
+}
+
+/* ----------------------------------------------------------
+   CATEGORY DROPDOWN
+---------------------------------------------------------- */
+
+.kb-category-dropdown {
+  position: absolute;
+
+  top: calc(100% + 13px);
+  right: 0;
+
+  width: 570px;
+  padding: 12px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #142230 0%,
+      #0d1823 100%
+    );
+
+  border: 1px solid rgba(100, 160, 215, 0.22);
+  border-radius: 12px;
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.42),
+    0 5px 15px rgba(0, 0, 0, 0.24);
+
+  animation: kb-dropdown-in 0.16s ease-out;
+}
+
+/*
+ * Pointer connecting dropdown to Categories button.
+ */
+
+.kb-category-dropdown::before {
+  content: '';
+
+  position: absolute;
+
+  right: 28px;
+  top: -7px;
+
+  width: 13px;
+  height: 13px;
+
+  background: #142230;
+
+  border-left: 1px solid rgba(100, 160, 215, 0.22);
+  border-top: 1px solid rgba(100, 160, 215, 0.22);
+
+  transform: rotate(45deg);
+}
+
+/* ----------------------------------------------------------
+   CATEGORY GRID
+---------------------------------------------------------- */
+
+.kb-category-dropdown-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 5px;
+}
+
+.kb-category-dropdown-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  min-height: 46px;
+  padding: 0 12px;
+
+  border-radius: 7px;
+
+  color: #dce8f3;
+
+  font-size: 13px;
+  font-weight: 550;
+
+  text-decoration: none;
+
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    padding 0.18s ease;
+}
+
+.kb-category-dropdown-link:hover {
+  background: rgba(65, 126, 184, 0.14);
+
+  color: #ffffff;
+
+  padding-left: 16px;
+}
+
+.kb-category-arrow {
+  flex-shrink: 0;
+
+  color: #72b8ff;
+
+  font-size: 16px;
+
+  opacity: 0.65;
+
+  transition:
+    color 0.18s ease,
+    transform 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.kb-category-dropdown-link:hover
+  .kb-category-arrow {
+  color: #f59e0b;
+
+  opacity: 1;
+
+  transform: translateX(3px);
+}
+
+/* ----------------------------------------------------------
+   PROJECTASSIGNMENTS LINK
+---------------------------------------------------------- */
+
+.kb-project-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  flex: 0 0 auto;
+
+  color: #8fb9df;
+
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.kb-project-link:hover {
+  color: #f59e0b;
+
+  transform: translateY(-1px);
+}
+
+/* ----------------------------------------------------------
+   DROPDOWN ANIMATION
+---------------------------------------------------------- */
+
+@keyframes kb-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================
+   RESPONSIVE HEADER
+========================================================== */
+
+@media (max-width: 900px) {
+  .kb-header-inner {
+    width: min(100% - 32px, 1400px);
+
+    min-height: 82px;
+  }
+
+  .kb-logo {
+    width: 185px;
+  }
+
+  .kb-header-actions {
+    gap: 20px;
+  }
+
+  .kb-project-link {
+    font-size: 12px;
+  }
+
+  .kb-category-dropdown {
+    width: min(570px, calc(100vw - 32px));
+  }
+}
+
+/* ----------------------------------------------------------
+   TABLET / SMALL MOBILE
+---------------------------------------------------------- */
+
+@media (max-width: 650px) {
+  .kb-header-inner {
+    min-height: 76px;
+  }
+
+  .kb-logo {
+    width: 155px;
+  }
+
+  .kb-header-actions {
+    gap: 12px;
+  }
+
+  .kb-categories-button {
+    min-height: 40px;
+
+    padding: 0 12px;
+
+    gap: 7px;
+
+    font-size: 12px;
+  }
+
+  /*
+   * IMPORTANT:
+   * ProjectAssignments remains visible on mobile.
+   * The full text is intentionally NOT hidden.
+   */
+
+  .kb-category-dropdown {
+    right: 0;
+    left: auto;
+
+    width: calc(100vw - 24px);
+    max-width: calc(100vw - 24px);
+  }
+
+  .kb-category-dropdown::before {
+    right: 22px;
+  }
+
+  .kb-category-dropdown-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kb-category-dropdown-link {
+    min-height: 43px;
+
+    font-size: 13px;
+  }
+}
+
+/* ----------------------------------------------------------
+   VERY SMALL MOBILE
+---------------------------------------------------------- */
+
+@media (max-width: 430px) {
+  .kb-header-inner {
+    width: calc(100% - 20px);
+  }
+
+  .kb-logo {
+    width: 135px;
+  }
+
+  .kb-header-actions {
+    gap: 8px;
+  }
+
+  .kb-categories-button {
+    padding: 0 10px;
+  }
+
+  .kb-categories-button span {
+    display: none;
+  }
+
+  .kb-category-dropdown {
+    width: calc(100vw - 20px);
+    max-width: calc(100vw - 20px);
+  }
+
+  .kb-category-dropdown::before {
+    right: 18px;
+  }
+}
+
+
+/* ==========================================================
+   KNOWLEDGEBOOST HERO VISUAL
+========================================================== */
+
 .kb-hero-visual {
   position: relative;
+
   width: min(620px, 48vw);
+
   aspect-ratio: 1 / 1;
+
   margin-left: auto;
+
   isolation: isolate;
 }
 
 .kb-hero-glow {
   position: absolute;
+
   width: 55%;
   height: 55%;
+
   left: 22.5%;
   top: 22.5%;
+
   border-radius: 50%;
+
   background:
     radial-gradient(
       circle,
@@ -20,6 +461,7 @@
       rgba(37, 99, 235, 0.05) 42%,
       transparent 72%
     );
+
   filter: blur(16px);
 }
 
@@ -29,52 +471,90 @@
 
 .kb-orbit {
   position: absolute;
+
   left: 50%;
   top: 50%;
+
   border-radius: 50%;
+
   border: 1px solid rgba(69, 137, 220, 0.20);
-  transform: translate(-50%, -50%);
+
+  transform:
+    translate(-50%, -50%);
 }
 
 .kb-orbit-1 {
   width: 47%;
   height: 47%;
-  animation: kb-orbit-spin 32s linear infinite;
+
+  animation:
+    kb-orbit-spin
+    32s
+    linear
+    infinite;
 }
 
 .kb-orbit-2 {
   width: 64%;
   height: 64%;
+
   border-color: rgba(245, 158, 11, 0.15);
-  animation: kb-orbit-spin-reverse 45s linear infinite;
+
+  animation:
+    kb-orbit-spin-reverse
+    45s
+    linear
+    infinite;
 }
 
 .kb-orbit-3 {
   width: 80%;
   height: 55%;
+
   transform:
     translate(-50%, -50%)
     rotate(-14deg);
+
   border-color: rgba(70, 151, 255, 0.16);
-  animation: kb-orbit-spin 55s linear infinite;
+
+  animation:
+    kb-orbit-spin
+    55s
+    linear
+    infinite;
 }
 
 .kb-orbit-4 {
   width: 92%;
   height: 68%;
+
   transform:
     translate(-50%, -50%)
     rotate(13deg);
+
   border-color: rgba(245, 158, 11, 0.09);
-  animation: kb-orbit-spin-reverse 65s linear infinite;
+
+  animation:
+    kb-orbit-spin-reverse
+    65s
+    linear
+    infinite;
 }
+
+/* ----------------------------------------------------------
+   ORBIT DOTS
+---------------------------------------------------------- */
 
 .kb-orbit-dot {
   position: absolute;
+
   width: 4px;
   height: 4px;
+
   border-radius: 50%;
+
   background: #72b8ff;
+
   box-shadow:
     0 0 7px rgba(114, 184, 255, 0.9),
     0 0 18px rgba(114, 184, 255, 0.5);
@@ -88,7 +568,9 @@
 .kb-dot-2 {
   right: 14%;
   top: 10%;
+
   background: #f59e0b;
+
   box-shadow:
     0 0 7px rgba(245, 158, 11, 0.9),
     0 0 18px rgba(245, 158, 11, 0.4);
@@ -102,6 +584,7 @@
 .kb-dot-4 {
   left: 12%;
   bottom: 12%;
+
   background: #f59e0b;
 }
 
@@ -111,16 +594,20 @@
 
 .kb-rocket-orbit {
   position: absolute;
+
   left: 50%;
   top: 50%;
+
   width: 0;
   height: 0;
 }
 
 .kb-rocket {
   position: absolute;
+
   width: 42px;
   height: 42px;
+
   filter:
     drop-shadow(
       0 0 5px rgba(105, 180, 255, 0.65)
@@ -128,13 +615,17 @@
 }
 
 /*
- * Each rocket starts at the centre and translates
- * outward before the entire orbit rotates.
+ * Each rocket starts at the centre and
+ * translates outward before the entire
+ * orbit rotates.
  */
 
 .kb-rocket-orbit-1 {
   animation:
-    kb-rocket-orbit-1 20s linear infinite;
+    kb-rocket-orbit-1
+    20s
+    linear
+    infinite;
 }
 
 .kb-rocket-orbit-1 .kb-rocket {
@@ -145,7 +636,10 @@
 
 .kb-rocket-orbit-2 {
   animation:
-    kb-rocket-orbit-2 28s linear infinite;
+    kb-rocket-orbit-2
+    28s
+    linear
+    infinite;
 }
 
 .kb-rocket-orbit-2 .kb-rocket {
@@ -156,7 +650,10 @@
 
 .kb-rocket-orbit-3 {
   animation:
-    kb-rocket-orbit-3 36s linear infinite;
+    kb-rocket-orbit-3
+    36s
+    linear
+    infinite;
 }
 
 .kb-rocket-orbit-3 .kb-rocket {
@@ -171,43 +668,64 @@
 
 .kb-laptop {
   position: absolute;
+
   left: 50%;
   top: 50%;
+
   width: 235px;
   height: 180px;
+
   transform:
     translate(-50%, -50%)
     perspective(700px)
     rotateX(3deg)
     rotateY(-8deg);
+
   animation:
-    kb-laptop-float 5s ease-in-out infinite;
+    kb-laptop-float
+    5s
+    ease-in-out
+    infinite;
+
   z-index: 5;
 }
 
 .kb-laptop-screen {
   position: absolute;
+
   left: 17px;
   top: 0;
+
   width: 201px;
   height: 128px;
+
   border: 5px solid #172230;
-  border-radius: 8px 8px 4px 4px;
+
+  border-radius:
+    8px
+    8px
+    4px
+    4px;
+
   background:
     linear-gradient(
       145deg,
       #0d1723,
       #07101a
     );
+
   box-shadow:
     inset 0 0 30px rgba(42, 126, 219, 0.08),
     0 15px 30px rgba(0, 0, 0, 0.45);
+
   overflow: hidden;
 }
 
 .kb-screen-glow {
   position: absolute;
+
   inset: 0;
+
   background:
     radial-gradient(
       circle at 50% 45%,
@@ -218,17 +736,25 @@
 
 .kb-screen-content {
   position: absolute;
+
   inset: 22px;
+
   display: flex;
+
   flex-direction: column;
+
   gap: 7px;
+
   justify-content: center;
 }
 
 .kb-screen-line {
   height: 4px;
+
   border-radius: 999px;
-  background: rgba(101, 170, 242, 0.28);
+
+  background:
+    rgba(101, 170, 242, 0.28);
 }
 
 .kb-line-1 {
@@ -245,62 +771,88 @@
 
 .kb-screen-symbol {
   position: absolute;
+
   right: 3px;
   bottom: 0;
+
   color: #f59e0b;
+
   font-size: 22px;
   font-weight: 850;
+
   letter-spacing: -0.06em;
+
   text-shadow:
     0 0 14px rgba(245, 158, 11, 0.35);
 }
 
 .kb-laptop-base {
   position: absolute;
+
   left: 0;
   bottom: 17px;
+
   width: 235px;
   height: 42px;
-  border-radius: 5px 5px 12px 12px;
+
+  border-radius:
+    5px
+    5px
+    12px
+    12px;
+
   background:
     linear-gradient(
       180deg,
       #1b2a3b,
       #101b28
     );
+
   border:
     1px solid rgba(135, 177, 217, 0.18);
+
   box-shadow:
     0 15px 25px rgba(0, 0, 0, 0.35);
 }
 
 .kb-keyboard {
   position: absolute;
+
   left: 18px;
   top: 7px;
+
   width: 128px;
   height: 18px;
+
   display: grid;
+
   grid-template-columns:
     repeat(9, 1fr);
+
   gap: 3px;
 }
 
 .kb-keyboard span {
   height: 3px;
+
   border-radius: 1px;
+
   background:
     rgba(132, 174, 213, 0.22);
 }
 
 .kb-trackpad {
   position: absolute;
+
   right: 22px;
   top: 9px;
+
   width: 43px;
   height: 19px;
+
   border:
     1px solid rgba(145, 184, 217, 0.16);
+
   border-radius: 3px;
 }
 
@@ -310,14 +862,22 @@
 
 .kb-particle {
   position: absolute;
+
   width: 3px;
   height: 3px;
+
   border-radius: 50%;
+
   background: #5aa7f5;
+
   box-shadow:
     0 0 10px rgba(90, 167, 245, 0.8);
+
   animation:
-    kb-particle-pulse 3s ease-in-out infinite;
+    kb-particle-pulse
+    3s
+    ease-in-out
+    infinite;
 }
 
 .kb-particle-1 {
@@ -328,30 +888,34 @@
 .kb-particle-2 {
   right: 14%;
   top: 29%;
+
   animation-delay: 1s;
 }
 
 .kb-particle-3 {
   right: 22%;
   bottom: 17%;
+
   animation-delay: 1.7s;
 }
 
 .kb-particle-4 {
   left: 21%;
   bottom: 22%;
+
   animation-delay: 0.5s;
 }
 
 .kb-particle-5 {
   left: 74%;
   top: 13%;
+
   animation-delay: 2.2s;
 }
 
-/* ----------------------------------------------------------
-   ANIMATION
----------------------------------------------------------- */
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
 
 @keyframes kb-orbit-spin {
   from {
@@ -383,11 +947,15 @@
 
 @keyframes kb-rocket-orbit-1 {
   from {
-    transform: rotate(0deg) translateX(235px);
+    transform:
+      rotate(0deg)
+      translateX(235px);
   }
 
   to {
-    transform: rotate(360deg) translateX(235px);
+    transform:
+      rotate(360deg)
+      translateX(235px);
   }
 }
 
@@ -444,39 +1012,47 @@
   0%,
   100% {
     opacity: 0.25;
-    transform: scale(0.7);
+
+    transform:
+      scale(0.7);
   }
 
   50% {
     opacity: 1;
-    transform: scale(1.3);
+
+    transform:
+      scale(1.3);
   }
 }
 
-/* ----------------------------------------------------------
+/* ==========================================================
    REDUCED MOTION
----------------------------------------------------------- */
+========================================================== */
 
-.kb-reduced-motion *,
+.kb-reduced-motion * ,
 .kb-reduced-motion {
   animation: none !important;
 }
 
-/* ----------------------------------------------------------
-   MOBILE
----------------------------------------------------------- */
+/* ==========================================================
+   HERO RESPONSIVE
+========================================================== */
 
 @media (max-width: 900px) {
+
   .kb-hero-visual {
     width: min(560px, 90vw);
+
     margin:
       30px auto 0;
   }
 }
 
 @media (max-width: 560px) {
+
   .kb-hero-visual {
     width: 100%;
+
     max-width: 420px;
   }
 

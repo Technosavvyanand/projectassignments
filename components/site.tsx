@@ -60,16 +60,121 @@ const navItems = [
   ['Policies', '/policies'],
 ]
 
+/* =========================================================
+   KNOWLEDGEBOOST BUTTON
+   ========================================================= */
+
+function KnowledgeBoostButton({
+  mobile = false,
+  onClick,
+}: {
+  mobile?: boolean
+  onClick?: () => void
+}) {
+  return (
+    <Link
+      href="/knowledgeboost"
+      aria-label="KnowledgeBoost — The Tech Knowledge Community"
+      onClick={onClick}
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: mobile ? '8px' : '7px',
+        width: mobile ? '100%' : 'auto',
+        minHeight: mobile ? '46px' : '40px',
+        flexShrink: 0,
+        padding: mobile
+          ? '12px 16px'
+          : '9px 14px',
+        borderRadius: '10px',
+        background:
+          'linear-gradient(135deg, #ffc15a 0%, #ffb347 50%, #ffa726 100%)',
+        color: '#17212b',
+        border: '1px solid #ff9f1c',
+        fontSize: mobile ? '14px' : '13px',
+        fontWeight: 800,
+        lineHeight: 1,
+        textDecoration: 'none',
+        whiteSpace: 'nowrap',
+        boxShadow:
+          '0 3px 10px rgba(15, 23, 42, 0.12)',
+        transition:
+          'background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease',
+      }}
+      onMouseEnter={(event) => {
+        event.currentTarget.style.background =
+          'linear-gradient(135deg, #ffd06e 0%, #ffb347 50%, #ffa726 100%)'
+        event.currentTarget.style.transform =
+          'translateY(-1px)'
+        event.currentTarget.style.boxShadow =
+          '0 6px 16px rgba(15, 23, 42, 0.18)'
+      }}
+      onMouseLeave={(event) => {
+        event.currentTarget.style.background =
+          'linear-gradient(135deg, #ffc15a 0%, #ffb347 50%, #ffa726 100%)'
+        event.currentTarget.style.transform =
+          'translateY(0)'
+        event.currentTarget.style.boxShadow =
+          '0 3px 10px rgba(15, 23, 42, 0.12)'
+      }}
+    >
+      <span
+        aria-hidden="true"
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: mobile ? '24px' : '22px',
+          height: mobile ? '24px' : '22px',
+          flexShrink: 0,
+          borderRadius: '7px',
+          backgroundColor:
+            'rgba(23, 33, 43, 0.11)',
+          color: '#17212b',
+        }}
+      >
+        <Sparkles size={mobile ? 14 : 13} />
+      </span>
+
+      <span
+        style={{
+          color: '#17212b',
+          fontWeight: 800,
+        }}
+      >
+        KnowledgeBoost
+      </span>
+    </Link>
+  )
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
 
   /*
-   * KnowledgeBoost has its own visual identity.
-   * Therefore the normal ProjectAssignments navbar is
-   * intentionally hidden on the KnowledgeBoost route.
+   * KnowledgeBoost owns its own header.
+   *
+   * IMPORTANT:
+   * Hide the ProjectAssignments navbar on:
+   *
+   *   /knowledgeboost
+   *   /knowledgeboost/category/...
+   *   /knowledgeboost/articles/...
+   *
+   * Returning null removes the main-site header entirely
+   * rather than leaving an empty header element in the DOM.
    */
-  if (pathname === '/knowledgeboost') {
+  const isKnowledgeBoost =
+    pathname === '/knowledgeboost' ||
+    pathname.startsWith('/knowledgeboost/')
+
+  if (isKnowledgeBoost) {
     return null
   }
 
@@ -116,81 +221,14 @@ export function Navbar() {
 
         {/* =====================================================
             KNOWLEDGEBOOST — DESKTOP
-            Special secondary community button
            ===================================================== */}
 
-        <Link
-          href="/knowledgeboost"
-          aria-label="KnowledgeBoost — The Tech Knowledge Community"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '7px',
-            flexShrink: 0,
-            padding: '9px 14px',
-            minHeight: '40px',
-            borderRadius: '10px',
-            backgroundColor: '#ffb347',
-            color: '#17212b',
-            border: '1px solid #ff9f1c',
-            fontSize: '13px',
-            fontWeight: 800,
-            lineHeight: 1,
-            textDecoration: 'none',
-            whiteSpace: 'nowrap',
-            boxShadow:
-              '0 2px 8px rgba(15, 23, 42, 0.10)',
-            transition:
-              'background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease',
-          }}
-          onMouseEnter={(event) => {
-            event.currentTarget.style.backgroundColor =
-              '#ffa726'
-            event.currentTarget.style.transform =
-              'translateY(-1px)'
-            event.currentTarget.style.boxShadow =
-              '0 5px 14px rgba(15, 23, 42, 0.16)'
-          }}
-          onMouseLeave={(event) => {
-            event.currentTarget.style.backgroundColor =
-              '#ffb347'
-            event.currentTarget.style.transform =
-              'translateY(0)'
-            event.currentTarget.style.boxShadow =
-              '0 2px 8px rgba(15, 23, 42, 0.10)'
-          }}
-        >
-          <span
-            aria-hidden="true"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '22px',
-              height: '22px',
-              flexShrink: 0,
-              borderRadius: '7px',
-              backgroundColor:
-                'rgba(23, 33, 43, 0.10)',
-              color: '#17212b',
-            }}
-          >
-            <Sparkles size={13} />
-          </span>
-
-          <span
-            style={{
-              color: '#17212b',
-              fontWeight: 800,
-            }}
-          >
-            KnowledgeBoost
-          </span>
-        </Link>
+        <div className="desktop-kb-button">
+          <KnowledgeBoostButton />
+        </div>
 
         {/* =====================================================
-            MAIN CTA
+            MAIN CTA — DESKTOP
            ===================================================== */}
 
         <Link
@@ -206,17 +244,32 @@ export function Navbar() {
         </Link>
 
         {/* =====================================================
+            MOBILE KNOWLEDGEBOOST
+           ===================================================== */}
+
+        <div
+          className="mobile-kb-button"
+          style={{
+            marginLeft: 'auto',
+          }}
+        >
+          <KnowledgeBoostButton />
+        </div>
+
+        {/* =====================================================
             MOBILE MENU BUTTON
            ===================================================== */}
 
         <button
           className="menu-button"
+          type="button"
           aria-label={
             open
               ? 'Close navigation'
               : 'Open navigation'
           }
           aria-expanded={open}
+          aria-controls="mobile-navigation"
           onClick={() => setOpen(!open)}
         >
           {open ? (
@@ -234,6 +287,7 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.nav
+            id="mobile-navigation"
             initial={{
               opacity: 0,
               height: 0,
@@ -245,6 +299,10 @@ export function Navbar() {
             exit={{
               opacity: 0,
               height: 0,
+            }}
+            transition={{
+              duration: 0.22,
+              ease: 'easeInOut',
             }}
             className="mobile-nav"
             aria-label="Mobile navigation"
@@ -260,57 +318,8 @@ export function Navbar() {
             ))}
 
             {/* =================================================
-                KNOWLEDGEBOOST — MOBILE
+                GET GUIDANCE — MOBILE
                ================================================= */}
-
-            <Link
-              href="/knowledgeboost"
-              aria-label="KnowledgeBoost — The Tech Knowledge Community"
-              onClick={() => setOpen(false)}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                width: '100%',
-                padding: '12px 16px',
-                borderRadius: '10px',
-                backgroundColor: '#ffb347',
-                color: '#17212b',
-                border: '1px solid #ff9f1c',
-                fontSize: '14px',
-                fontWeight: 800,
-                lineHeight: 1,
-                textDecoration: 'none',
-              }}
-            >
-              <span
-                aria-hidden="true"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '22px',
-                  height: '22px',
-                  flexShrink: 0,
-                  borderRadius: '7px',
-                  backgroundColor:
-                    'rgba(23, 33, 43, 0.10)',
-                  color: '#17212b',
-                }}
-              >
-                <Sparkles size={13} />
-              </span>
-
-              <span
-                style={{
-                  color: '#17212b',
-                  fontWeight: 800,
-                }}
-              >
-                KnowledgeBoost
-              </span>
-            </Link>
 
             <Link
               href="/contact"
@@ -323,6 +332,92 @@ export function Navbar() {
           </motion.nav>
         )}
       </AnimatePresence>
+
+      {/* =======================================================
+          RESPONSIVE OVERRIDES
+         ======================================================= */}
+
+      <style jsx>{`
+        .desktop-kb-button {
+          display: flex;
+          align-items: center;
+        }
+
+        .mobile-kb-button {
+          display: none;
+        }
+
+        @media (max-width: 1050px) {
+          .desktop-nav {
+            gap: 14px !important;
+          }
+
+          .desktop-nav a {
+            font-size: 14px;
+          }
+        }
+
+        @media (max-width: 900px) {
+          .desktop-nav,
+          .desktop-kb-button,
+          .nav-cta {
+            display: none !important;
+          }
+
+          .mobile-kb-button {
+            display: flex;
+            align-items: center;
+          }
+
+          .menu-button {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+          }
+
+          .nav-inner {
+            gap: 10px !important;
+          }
+
+          .mobile-kb-button a {
+            min-height: 40px !important;
+            padding: 9px 12px !important;
+            font-size: 12px !important;
+          }
+
+          .mobile-kb-button a span:first-child {
+            width: 21px !important;
+            height: 21px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .mobile-kb-button a {
+            gap: 5px !important;
+            padding: 8px 9px !important;
+            min-height: 38px !important;
+            border-radius: 9px !important;
+            font-size: 11px !important;
+          }
+
+          .mobile-kb-button a span:first-child {
+            width: 19px !important;
+            height: 19px !important;
+            border-radius: 6px !important;
+          }
+
+          .mobile-kb-button svg {
+            width: 12px !important;
+            height: 12px !important;
+          }
+
+          .menu-button {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      `}</style>
     </header>
   )
 }
@@ -332,6 +427,22 @@ export function Navbar() {
    ========================================================= */
 
 export function Footer() {
+  const pathname = usePathname()
+
+  /*
+   * KnowledgeBoost has its own footer.
+   *
+   * Hide the ProjectAssignments footer from the entire
+   * KnowledgeBoost route tree.
+   */
+  const isKnowledgeBoost =
+    pathname === '/knowledgeboost' ||
+    pathname.startsWith('/knowledgeboost/')
+
+  if (isKnowledgeBoost) {
+    return null
+  }
+
   return (
     <footer className="site-footer">
       <div className="container footer-grid">
@@ -729,7 +840,7 @@ export function FAQ() {
               setActive(
                 active === i
                   ? null
-                  : i
+                  : i,
               )
             }
             aria-expanded={active === i}

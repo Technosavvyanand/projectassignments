@@ -1,7 +1,6 @@
 import {
   ArrowRight,
   Clock3,
-  ExternalLink,
   Sparkles,
 } from 'lucide-react'
 import type { Metadata } from 'next'
@@ -55,7 +54,7 @@ export const metadata: Metadata = {
 /* --------------------------------------------------------------------------
    ARTICLES
 
-   Articles are now loaded from:
+   Articles are loaded from:
 
        content/knowledgeboost/*.mdx
 
@@ -178,10 +177,8 @@ export default function KnowledgeBoostPage() {
       {/* ------------------------------------------------------------------
           PAGE-SPECIFIC LAYOUT CSS
 
-          The animated visual itself is styled by:
-          components/knowledgeboost/hero-visual
-
-          These rules handle the homepage around it.
+          The shared KnowledgeBoost header and footer are handled by the
+          parent layout. This page contains only homepage-specific styling.
       ------------------------------------------------------------------ */}
 
       <style>{`
@@ -215,106 +212,6 @@ export default function KnowledgeBoostPage() {
         .kb-container {
           width: min(1180px, calc(100% - 48px));
           margin: 0 auto;
-        }
-
-        /* --------------------------------------------------------------
-           HEADER
-        -------------------------------------------------------------- */
-
-        .kb-header {
-          position: sticky;
-          top: 0;
-          z-index: 50;
-          border-bottom: 1px solid var(--kb-border);
-          background: rgba(7, 11, 16, 0.88);
-          backdrop-filter: blur(18px);
-          -webkit-backdrop-filter: blur(18px);
-        }
-
-        .kb-header-inner {
-          width: min(1440px, calc(100% - 48px));
-          min-height: 76px;
-          margin: 0 auto;
-          display: flex;
-          align-items: center;
-          gap: 24px;
-        }
-
-        .kb-logo-link {
-          display: flex;
-          align-items: center;
-          flex: 0 0 auto;
-          text-decoration: none;
-        }
-
-        .kb-logo {
-          width: 170px;
-          height: auto;
-          display: block;
-        }
-
-        .kb-category-nav {
-          flex: 1 1 auto;
-          min-width: 0;
-          overflow-x: auto;
-          scrollbar-width: none;
-        }
-
-        .kb-category-nav::-webkit-scrollbar {
-          display: none;
-        }
-
-        .kb-category-list {
-          display: flex;
-          align-items: center;
-          gap: 3px;
-          width: max-content;
-        }
-
-        .kb-category-link {
-          display: inline-flex;
-          align-items: center;
-          padding: 8px 9px;
-          border-radius: 7px;
-          color: #aeb9c8;
-          font-size: 12px;
-          line-height: 1;
-          font-weight: 650;
-          white-space: nowrap;
-          text-decoration: none;
-          transition:
-            color 160ms ease,
-            background 160ms ease;
-        }
-
-        .kb-category-link:hover {
-          color: #ffffff;
-          background: rgba(255,255,255,0.05);
-        }
-
-        .kb-project-link {
-          display: inline-flex;
-          align-items: center;
-          gap: 7px;
-          flex: 0 0 auto;
-          padding: 9px 11px;
-          border: 1px solid var(--kb-border);
-          border-radius: 8px;
-          background: rgba(255,255,255,0.025);
-          color: #8f9bab;
-          font-size: 12px;
-          font-weight: 700;
-          text-decoration: none;
-          transition:
-            color 160ms ease,
-            border-color 160ms ease,
-            background 160ms ease;
-        }
-
-        .kb-project-link:hover {
-          color: #ffffff;
-          border-color: rgba(255,255,255,0.15);
-          background: rgba(255,255,255,0.05);
         }
 
         /* --------------------------------------------------------------
@@ -911,76 +808,10 @@ export default function KnowledgeBoostPage() {
         }
 
         /* --------------------------------------------------------------
-           FOOTER
-        -------------------------------------------------------------- */
-
-        .kb-footer {
-          border-top: 1px solid var(--kb-border);
-          background: var(--kb-bg-deep);
-          padding: 44px 0;
-        }
-
-        .kb-footer-inner {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          align-items: center;
-          gap: 24px;
-        }
-
-        .kb-footer-name {
-          margin: 0;
-          color: #dce3ec;
-          font-size: 14px;
-          line-height: 1.2;
-          font-weight: 800;
-        }
-
-        .kb-footer-tagline {
-          margin: 6px 0 0;
-          color: #667384;
-          font-size: 12px;
-        }
-
-        .kb-footer-links {
-          display: flex;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 18px;
-        }
-
-        .kb-footer-link {
-          color: #7f8b9a;
-          font-size: 12px;
-          text-decoration: none;
-        }
-
-        .kb-footer-link:hover {
-          color: #ffffff;
-        }
-
-        .kb-footer-separator {
-          color: #303844;
-        }
-
-        .kb-footer-current {
-          color: #566273;
-          font-size: 12px;
-        }
-
-        /* --------------------------------------------------------------
            RESPONSIVE
         -------------------------------------------------------------- */
 
         @media (max-width: 1100px) {
-          .kb-header-inner {
-            gap: 16px;
-          }
-
-          .kb-logo {
-            width: 145px;
-          }
-
           .kb-hero-grid {
             grid-template-columns:
               minmax(0, 0.9fr)
@@ -996,15 +827,6 @@ export default function KnowledgeBoostPage() {
         @media (max-width: 900px) {
           .kb-container {
             width: min(100% - 36px, 720px);
-          }
-
-          .kb-header-inner {
-            width: calc(100% - 36px);
-            min-height: 68px;
-          }
-
-          .kb-project-link {
-            display: none;
           }
 
           .kb-hero {
@@ -1065,20 +887,6 @@ export default function KnowledgeBoostPage() {
             width: calc(100% - 30px);
           }
 
-          .kb-header-inner {
-            width: calc(100% - 30px);
-          }
-
-          .kb-logo {
-            width: 135px;
-          }
-
-          .kb-category-link {
-            padding-left: 7px;
-            padding-right: 7px;
-            font-size: 11px;
-          }
-
           .kb-hero-grid {
             padding-top: 48px;
           }
@@ -1125,11 +933,6 @@ export default function KnowledgeBoostPage() {
           .kb-community-card {
             padding: 28px 24px;
           }
-
-          .kb-footer-inner {
-            align-items: flex-start;
-            flex-direction: column;
-          }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1150,64 +953,13 @@ export default function KnowledgeBoostPage() {
       `}</style>
 
       {/* ==================================================================
-          HEADER
-      ================================================================== */}
-
-      <header className="kb-header">
-        <div className="kb-header-inner">
-          <Link
-            href="/knowledgeboost"
-            className="kb-logo-link"
-            aria-label="KnowledgeBoost home"
-          >
-            <Image
-              src="/images/kb-logo.png"
-              alt="KnowledgeBoost"
-              width={220}
-              height={103}
-              priority
-              className="kb-logo"
-            />
-          </Link>
-
-          <nav
-            className="kb-category-nav"
-            aria-label="KnowledgeBoost categories"
-          >
-            <div className="kb-category-list">
-              {categories.map((category) => (
-                <Link
-                  key={category}
-                  href={categoryHref(category)}
-                  className="kb-category-link"
-                >
-                  {category}
-                </Link>
-              ))}
-            </div>
-          </nav>
-
-          <Link
-            href="/"
-            className="kb-project-link"
-          >
-            ProjectAssignments
-            <ExternalLink
-              size={13}
-              aria-hidden="true"
-            />
-          </Link>
-        </div>
-      </header>
-
-      {/* ==================================================================
           MAIN
       ================================================================== */}
 
-      <main>
+      <main className="kb-page">
         {/* ================================================================
             HERO
-        ================================================================ */}
+        ================================================================= */}
 
         <section className="kb-hero">
           <div className="kb-container kb-hero-grid">
@@ -1267,7 +1019,7 @@ export default function KnowledgeBoostPage() {
 
         {/* ================================================================
             FEATURED + LATEST
-        ================================================================ */}
+        ================================================================= */}
 
         <section className="kb-featured-section">
           <div className="kb-container">
@@ -1385,7 +1137,7 @@ export default function KnowledgeBoostPage() {
 
         {/* ================================================================
             LATEST KNOWLEDGE
-        ================================================================ */}
+        ================================================================= */}
 
         <section
           id="latest-knowledge"
@@ -1412,7 +1164,7 @@ export default function KnowledgeBoostPage() {
 
         {/* ================================================================
             TOPICS / CATEGORY SECTIONS
-        ================================================================ */}
+        ================================================================= */}
 
         <div id="topics">
           {categories.map((category) => {
@@ -1470,7 +1222,7 @@ export default function KnowledgeBoostPage() {
 
         {/* ================================================================
             COMMUNITY
-        ================================================================ */}
+        ================================================================= */}
 
         <section className="kb-community-section">
           <div className="kb-container">
@@ -1498,44 +1250,6 @@ export default function KnowledgeBoostPage() {
           </div>
         </section>
       </main>
-
-      {/* ==================================================================
-          FOOTER
-      ================================================================== */}
-
-      <footer className="kb-footer">
-        <div className="kb-container kb-footer-inner">
-          <div>
-            <p className="kb-footer-name">
-              KnowledgeBoost
-            </p>
-
-            <p className="kb-footer-tagline">
-              Technology worth knowing.
-            </p>
-          </div>
-
-          <div className="kb-footer-links">
-            <Link
-              href="/"
-              className="kb-footer-link"
-            >
-              ProjectAssignments
-            </Link>
-
-            <span
-              className="kb-footer-separator"
-              aria-hidden="true"
-            >
-              •
-            </span>
-
-            <span className="kb-footer-current">
-              KnowledgeBoost
-            </span>
-          </div>
-        </div>
-      </footer>
 
       {/* ==================================================================
           STRUCTURED DATA

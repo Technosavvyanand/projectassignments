@@ -652,54 +652,53 @@ h3 { margin: 0; font-size: 21px; }
   overflow: hidden;
 }
 /* =========================================================
-   KNOWLEDGEBOOST NAVIGATION (UPDATED)
+   KNOWLEDGEBOOST NAVIGATION
    ========================================================= */
 
 .site-header .knowledgeboost-nav-button {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 8px !important;
+  gap: 7px !important;
 
-  padding: 10px 18px !important;
-  min-height: 42px !important;
+  padding: 9px 15px !important;
+  min-height: 40px !important;
 
-  border-radius: 8px !important;
+  border-radius: 10px !important;
 
-  /* Vibrant solid orange base */
-  background: #ff7043 !important; 
-  color: #0f172a !important;
+  background: #ffb347 !important;
+  color: #17212b !important;
 
-  border: 1px solid #e65100 !important;
+  border: 1px solid #ff9f1c !important;
 
-  font-size: 14px !important;
-  font-weight: 900 !important;
-  letter-spacing: 0.3px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
   line-height: 1 !important;
 
   text-decoration: none !important;
 
-  /* High contrast shadow to lift off header background */
-  box-shadow: 0 4px 12px rgba(230, 81, 0, 0.35) !important;
-  position: relative !important;
-  z-index: 5 !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.10) !important;
 
-  transition: all 0.2s ease-in-out !important;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease !important;
 }
 
 .site-header .knowledgeboost-nav-button:hover {
-  background: #f57c00 !important;
-  color: #0f172a !important;
-  border-color: #bf360c !important;
+  background: #ffa726 !important;
+  color: #17212b !important;
+  border-color: #f7931e !important;
 
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 18px rgba(230, 81, 0, 0.45) !important;
+  transform: translateY(-1px);
+
+  box-shadow: 0 5px 14px rgba(15, 23, 42, 0.16) !important;
 }
 
-.site-header .knowledgeboost-nav-button span,
 .site-header .knowledgeboost-nav-button span:last-child {
-  color: #0f172a !important;
-  font-weight: 900 !important;
+  color: #17212b !important;
+  font-weight: 800 !important;
 }
 
 .site-header .knowledgeboost-nav-mark {
@@ -709,30 +708,29 @@ h3 { margin: 0; font-size: 21px; }
 
   width: 22px !important;
   height: 22px !important;
+
   flex-shrink: 0 !important;
 
-  border-radius: 6px !important;
+  border-radius: 7px !important;
 
-  /* Dark translucent container for icon accent contrast */
-  background: rgba(15, 23, 42, 0.15) !important;
-  color: #0f172a !important;
+  background: rgba(23, 33, 43, 0.10) !important;
+  color: #17212b !important;
 }
 
 .site-header .knowledgeboost-nav-mark svg {
-  color: #0f172a !important;
-  stroke: #0f172a !important;
-  stroke-width: 2.5px !important;
+  color: #17212b !important;
+  stroke: #17212b !important;
 }
 
 .site-header .knowledgeboost-nav-button:focus-visible,
 .site-header .knowledgeboost-mobile-button:focus-visible {
-  outline: 3px solid #ff7043 !important;
-  outline-offset: 2px !important;
+  outline: 2px solid #ffffff !important;
+  outline-offset: 3px !important;
 }
 
 
 /* =========================================================
-   KNOWLEDGEBOOST MOBILE (UPDATED)
+   KNOWLEDGEBOOST MOBILE
    ========================================================= */
 
 .site-header .knowledgeboost-mobile-button {
@@ -742,29 +740,28 @@ h3 { margin: 0; font-size: 21px; }
   gap: 8px !important;
 
   width: 100% !important;
+
   padding: 12px 16px !important;
 
-  border-radius: 8px !important;
+  border-radius: 10px !important;
 
-  background: #ff7043 !important;
-  color: #0f172a !important;
+  background: #ffb347 !important;
+  color: #17212b !important;
 
-  border: 1px solid #e65100 !important;
+  border: 1px solid #ff9f1c !important;
 
-  font-size: 14px !weight: 900 !important;
-  font-weight: 900 !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+
   text-decoration: none !important;
-
-  box-shadow: 0 4px 10px rgba(230, 81, 0, 0.3) !important;
 }
 
 .site-header .knowledgeboost-mobile-button:hover {
-  background: #f57c00 !important;
-  color: #0f172a !important;
+  background: #ffa726 !important;
+  color: #17212b !important;
 }
 
-.site-header .knowledgeboost-mobile-button span,
 .site-header .knowledgeboost-mobile-button span:last-child {
-  color: #0f172a !important;
-  font-weight: 900 !important;
+  color: #17212b !important;
+  font-weight: 800 !important;
 }

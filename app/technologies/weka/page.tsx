@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     'Expert WEKA guidance for data mining, machine learning, ARFF datasets, classification, clustering, regression, feature selection, model evaluation, and academic research projects.',
   keywords: [
     'WEKA consultancy',
+    'WEKA data minining assignment help',
     'WEKA machine learning',
     'WEKA data mining',
     'WEKA assignment help',

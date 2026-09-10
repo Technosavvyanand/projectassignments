@@ -3363,3 +3363,53 @@ h3 {
   }
 
 }
+.coming-soon-section {
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+}
+
+.coming-soon-content {
+  max-width: 720px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.coming-soon-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(13, 148, 136, 0.1);
+  color: var(--primary);
+}
+
+.coming-soon-content h1 {
+  margin: 10px 0 20px;
+}
+
+.coming-soon-description {
+  max-width: 620px;
+  margin: 0 auto 12px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.coming-soon-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.coming-soon-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}

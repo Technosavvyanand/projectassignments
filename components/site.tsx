@@ -56,7 +56,7 @@ const navItems = [
   ['Assignment & Project Help', '/assignment-project-help'],
   ['Services', '/services'],
   ['Technologies', '/technologies'],
-  ['Resources', '/resources'],
+  ['Study Guides', '/study-guides'],
   ['Policies', '/policies'],
 ]
 

@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     'synthetic survey data',
     'survey data generator',
     'SQL formatter',
+    'SQL formatter online',
+    'SQL query formatter',
+    'SQL beautifier',
     'data analysis tools',
     'student research tools',
     'project management tools for students',
@@ -51,21 +54,21 @@ const tools = [
       'Read questions from a public Google Form',
       'Generate up to 150 synthetic responses',
       'Preserve original answer option labels',
-      'Download the generated dataset',
+      'Download the generated dataset as CSV',
     ],
   },
   {
     title: 'SQL Formatter',
     description:
-      'Format SQL queries into a cleaner, more readable structure while working on database assignments, projects, and SQL development.',
+      'Format SQL queries into a clean, readable structure for database assignments, projects, development, debugging, and technical documentation.',
     href: '/tools/sql-formatter',
-    status: 'Coming Soon',
+    status: 'Available',
     icon: Database,
     features: [
-      'Clean up SQL formatting',
-      'Improve query readability',
-      'Useful for database assignments',
-      'Support for common SQL syntax',
+      'Format SQL queries instantly',
+      'Support common SQL dialects',
+      'Customize keyword case and indentation',
+      'Copy or download formatted SQL',
     ],
   },
 ]
@@ -254,7 +257,10 @@ export default function ToolsPage() {
                 textAlign: 'center',
               }}
             >
-              <div className="service-card-icon" style={{ margin: '0 auto 20px' }}>
+              <div
+                className="service-card-icon"
+                style={{ margin: '0 auto 20px' }}
+              >
                 <Sparkles size={28} />
               </div>
 

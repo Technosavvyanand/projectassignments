@@ -852,7 +852,7 @@ export default function SurveyResponseGeneratorPage() {
                         <Sparkles
                           size={18}
                         />
-                        Generate Synthetic
+                        Generate Responses
                         Dataset
                       </>
                     )}

@@ -53,10 +53,11 @@ export function Logo({
 
 const navItems = [
   ['About', '/about'],
-  ['Assignment & Project Help', '/assignment-project-help'],
+  ['Assignment Help', '/assignment-project-help'],
   ['Services', '/services'],
   ['Technologies', '/technologies'],
   ['Study Guides', '/study-guides'],
+  ['Tools', '/tools'],
   ['Policies', '/policies'],
 ]
 

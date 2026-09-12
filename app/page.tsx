@@ -520,6 +520,57 @@ function AcademicSupportIntro() {
 
 
 /* =========================================================
+   TRUSTPILOT CTA
+   ========================================================= */
+
+function TrustpilotCTA() {
+
+  return (
+
+    <section className="trustpilot-cta">
+
+      <div className="container">
+
+        <div className="trustpilot-cta-content">
+
+          <div>
+
+            <p className="eyebrow">
+              Client Feedback
+            </p>
+
+            <h2>
+              See what our clients say about us.
+            </h2>
+
+            <p>
+              Read genuine reviews and feedback from
+              our clients on Trustpilot.
+            </p>
+
+          </div>
+
+
+          <a
+            href="https://www.trustpilot.com/review/projectassignments.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button button-primary trustpilot-button"
+          >
+            View us on Trustpilot
+            <ArrowRight size={17} />
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+  )
+}
+
+
+/* =========================================================
    MAIN HOME PAGE
    ========================================================= */
 
@@ -802,6 +853,13 @@ export default function Page() {
           </div>
 
         </section>
+
+
+        {/* =====================================================
+            TRUSTPILOT
+           ===================================================== */}
+
+        <TrustpilotCTA />
 
 
         {/* =====================================================

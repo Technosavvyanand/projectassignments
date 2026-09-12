@@ -18,6 +18,7 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Script from 'next/script'
 import { useState } from 'react'
 
 /* =========================================================
@@ -488,15 +489,41 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="container footer-bottom">
-        <span>
-          © {new Date().getFullYear()} ProjectAssignments.
-          All rights reserved.
-        </span>
+      {/* =====================================================
+          FOOTER BOTTOM
+         ===================================================== */}
 
-        <span>
-          Built for thoughtful work.
-        </span>
+      <div className="container footer-bottom">
+        <div className="footer-bottom-left">
+          <span>
+            © {new Date().getFullYear()} ProjectAssignments.
+            All rights reserved.
+          </span>
+
+          <span>
+            Built for thoughtful work.
+          </span>
+        </div>
+
+        <div className="dmca-badge-wrapper">
+          <a
+            href="https://www.dmca.com/Protection/Status.aspx?ID=df277bd1-34ab-418c-8e67-2e79763b35b5"
+            title="DMCA.com Protection Status"
+            className="dmca-badge"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://images.dmca.com/Badges/dmca-badge-w100-2x1-02.png?ID=df277bd1-34ab-418c-8e67-2e79763b35b5"
+              alt="DMCA.com Protection Status"
+            />
+          </a>
+
+          <Script
+            src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"
+            strategy="afterInteractive"
+          />
+        </div>
       </div>
     </footer>
   )

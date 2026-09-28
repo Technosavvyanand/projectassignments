@@ -458,6 +458,10 @@ export function Footer() {
           </p>
         </div>
 
+        {/* =================================================
+            EXPLORE
+           ================================================= */}
+
         <div>
           <p className="footer-label">
             Explore
@@ -472,6 +476,32 @@ export function Footer() {
             </Link>
           ))}
         </div>
+
+        {/* =================================================
+            RESOURCES
+           ================================================= */}
+
+        <div>
+          <p className="footer-label">
+            Resources
+          </p>
+
+          <Link href="/resources">
+            Resource Hub
+          </Link>
+
+          <Link href="/resources/referencing-styles">
+            Referencing Styles
+          </Link>
+
+          <Link href="/resources/data-mining-tools">
+            Data Mining Tools
+          </Link>
+        </div>
+
+        {/* =================================================
+            GET IN TOUCH
+           ================================================= */}
 
         <div>
           <p className="footer-label">

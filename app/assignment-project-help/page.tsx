@@ -1,28 +1,32 @@
 import {
-    ArrowRight,
-    BookOpen,
-    Code2,
-    Database,
-    FileText,
-    Search,
-    ShieldCheck,
+  ArrowRight,
+  BookOpen,
+  BriefcaseBusiness,
+  Code2,
+  Database,
+  FileText,
+  Gavel,
+  GraduationCap,
+  HeartPulse,
+  Search,
+  ShieldCheck,
 } from 'lucide-react'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import {
-    CTA,
-    Footer,
-    PageHero,
-    SectionHeading,
+  CTA,
+  Footer,
+  PageHero,
+  SectionHeading,
 } from '@/components/site'
 
 export const metadata: Metadata = {
   title:
     'Assignment & Academic Project Help | Technical, Research & Project Guidance',
   description:
-    'Explore ethical assignment and academic project help covering programming, software development, data science, cybersecurity, databases, research, dissertations, and technical projects.',
+    'Explore ethical assignment and academic project help covering programming, software development, data science, cybersecurity, databases, research, dissertations, nursing, law, early childhood, management, and technical projects.',
   keywords: [
     'assignment help',
     'academic project help',
@@ -36,6 +40,10 @@ export const metadata: Metadata = {
     'data science project help',
     'cybersecurity assignment help',
     'database assignment help',
+    'nursing assignment help',
+    'law assignment help',
+    'early childhood assignment help',
+    'management assignment help',
     'academic project support',
   ],
   alternates: {
@@ -45,7 +53,7 @@ export const metadata: Metadata = {
     title:
       'Assignment & Academic Project Help | ProjectAssignments',
     description:
-      'Practical and ethical guidance for technical assignments, academic projects, research work, programming, data science, cybersecurity, databases, and dissertations.',
+      'Practical and ethical guidance for technical assignments, academic projects, research work, programming, data science, cybersecurity, databases, dissertations, nursing, law, early childhood, and management.',
     url: 'https://projectassignments.com/assignment-project-help',
     siteName: 'ProjectAssignments',
     type: 'website',
@@ -101,6 +109,38 @@ const projectAreas = [
     href: '/assignment-project-help/dissertation-project-help',
     linkText: 'Explore dissertation project help',
   },
+  {
+    icon: <HeartPulse size={25} aria-hidden="true" />,
+    title: 'Nursing Assignment Help',
+    description:
+      'Academic guidance for nursing assignments covering clinical concepts, evidence-based practice, healthcare research, nursing theory, case analysis, and academic documentation.',
+    href: '/assignment-project-help/nursing-assignment-help',
+    linkText: 'Explore nursing assignment help',
+  },
+  {
+    icon: <Gavel size={25} aria-hidden="true" />,
+    title: 'Law Assignment Help',
+    description:
+      'Guidance for law assignments involving legal research, case analysis, legislation, legal principles, critical discussion, argument development, and academic writing.',
+    href: '/assignment-project-help/law-assignment-help',
+    linkText: 'Explore law assignment help',
+  },
+  {
+    icon: <GraduationCap size={25} aria-hidden="true" />,
+    title: 'Early Childhood Assignment Help',
+    description:
+      'Academic guidance for early childhood education assignments covering child development, learning theories, curriculum planning, pedagogy, inclusion, and reflective practice.',
+    href: '/assignment-project-help/early-childhood-assignment-help',
+    linkText: 'Explore early childhood assignment help',
+  },
+  {
+    icon: <BriefcaseBusiness size={25} aria-hidden="true" />,
+    title: 'Management Assignment Help',
+    description:
+      'Support for management assignments involving business strategy, leadership, organisational behaviour, operations, marketing, human resources, and business analysis.',
+    href: '/assignment-project-help/management-assignment-help',
+    linkText: 'Explore management assignment help',
+  },
 ]
 
 const supportStages = [
@@ -146,7 +186,7 @@ const faqs = [
   {
     question: 'What types of assignments and academic projects do you support?',
     answer:
-      'We focus particularly on technical and research-oriented academic work, including programming, software development, databases and SQL, cybersecurity, data science, machine learning, research methodology, technical reports, dissertations, MBA projects, and DBA research.',
+      'We focus particularly on technical and research-oriented academic work, including programming, software development, databases and SQL, cybersecurity, data science, machine learning, nursing, law, early childhood education, management, research methodology, technical reports, dissertations, MBA projects, and DBA research.',
   },
   {
     question: 'Can you help with a programming or computer science assignment?',
@@ -186,7 +226,7 @@ const pageSchema = {
       name:
         'Assignment & Academic Project Help | Technical, Research & Project Guidance',
       description:
-        'Ethical guidance for technical assignments, academic projects, programming, data science, cybersecurity, databases, research projects, and dissertations.',
+        'Ethical guidance for technical assignments, academic projects, programming, data science, cybersecurity, databases, research projects, nursing, law, early childhood education, management, and dissertations.',
       isPartOf: {
         '@id': 'https://projectassignments.com/#website',
       },
@@ -215,16 +255,16 @@ const pageSchema = {
         },
       ],
     },
-    {
-      '@type': 'ItemList',
-      name: 'Academic Project Areas',
-      itemListElement: projectAreas.map((area, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: area.title,
-        url: `https://projectassignments.com${area.href}`,
-      })),
-    },
+{
+  '@type': 'ItemList',
+  name: 'Academic Project Areas',
+  itemListElement: projectAreas.map((area, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: area.title,
+    url: 'https://projectassignments.com' + area.href,
+  })),
+},
     {
       '@type': 'FAQPage',
       mainEntity: faqs.map((faq) => ({
@@ -246,7 +286,7 @@ export default function AssignmentProjectHelpPage() {
         <PageHero
           eyebrow="ASSIGNMENT & ACADEMIC PROJECT GUIDANCE"
           title="Practical Guidance for Assignments, Academic Projects, and Technical Work."
-          body="From programming and cybersecurity to data science, databases, research projects, and dissertations, ProjectAssignments helps students understand difficult work, plan effectively, solve technical problems, and strengthen their own academic submissions."
+          body="From programming and cybersecurity to data science, databases, research projects, dissertations, nursing, law, early childhood education, and management, ProjectAssignments helps students understand difficult work, plan effectively, solve technical problems, and strengthen their own academic submissions."
         />
 
         {/* Introduction */}
@@ -266,9 +306,9 @@ export default function AssignmentProjectHelpPage() {
                 <p>
                   This is particularly true for computer science,
                   information technology, cybersecurity, data science,
-                  software engineering, business research, and
-                  postgraduate projects. The final document may be only
-                  one part of a much larger process.
+                  software engineering, business research, healthcare,
+                  law, education, and postgraduate projects. The final
+                  document may be only one part of a much larger process.
                 </p>
 
                 <p style={{ marginTop: '18px' }}>
@@ -354,7 +394,7 @@ export default function AssignmentProjectHelpPage() {
             <SectionHeading
               eyebrow="TYPES OF ACADEMIC PROJECTS"
               title="Different projects require different kinds of expertise."
-              body="Academic project work can range from programming and software development to research, data science, cybersecurity, databases, dissertations, and technical reporting."
+              body="Academic project work can range from programming and software development to research, data science, cybersecurity, databases, healthcare, law, education, management, dissertations, and technical reporting."
             />
 
             <div
@@ -363,16 +403,16 @@ export default function AssignmentProjectHelpPage() {
             >
               <Image
                 src="/images/academic-project-types.png"
-                alt="Types of academic projects including programming, web and software development, data science and machine learning, cybersecurity, database projects, research projects, dissertations, and technical reports"
+                alt="Types of academic projects including programming, web and software development, data science and machine learning, cybersecurity, database projects, nursing, law, early childhood education, management, research projects, dissertations, and technical reports"
                 width={2048}
                 height={1024}
                 sizes="(max-width: 900px) 100vw, 1200px"
               />
 
               <p className="image-caption">
-                Examples of technical, research, and postgraduate
-                academic projects that may require different forms of
-                subject expertise.
+                Examples of technical, research, professional, and
+                postgraduate academic projects that may require
+                different forms of subject expertise.
               </p>
             </div>
 
@@ -436,8 +476,9 @@ export default function AssignmentProjectHelpPage() {
                 <h3>Understanding concepts</h3>
                 <p>
                   Break complex programming, database, cybersecurity,
-                  data science, research, or systems concepts into
-                  understandable components.
+                  data science, research, healthcare, law, education,
+                  management, or systems concepts into understandable
+                  components.
                 </p>
               </article>
 
@@ -706,3 +747,4 @@ export default function AssignmentProjectHelpPage() {
     </>
   )
 }
+
